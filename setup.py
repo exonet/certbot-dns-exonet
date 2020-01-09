@@ -9,6 +9,7 @@ install_requires = [
     'acme',
     'certbot',
     'exonetapi>=2.1.0',
+    'tldextract'
     'setuptools',
     'requests',
     'zope.interface',
