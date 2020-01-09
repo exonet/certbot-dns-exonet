@@ -24,7 +24,7 @@ Install using pip::
 Usage
 -----
 
-1. Request an Exonet API token (contact [Exonet](https://www.exonet.nl/contact/))
+1. Request an Exonet API token (`contact Exonet <https://www.exonet.nl/contact>`_)
 
 2. Install the plugin using `pip install certbot-dns-exonet`
 
