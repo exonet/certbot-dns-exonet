@@ -8,7 +8,7 @@ Certbot plugin for authentication using the Exonet DNS
 .. image:: https://img.shields.io/pypi/l/certbot-dns-exonet.svg?style=flat-square
     :target: https://github.com/exonet/certbot-dns-exonet/blob/master/LICENSE
 
-`Certbot <https://certbot.eff.org>`_ DNS Authenticator plugin for `Exonet B.V. <https://www.exonet.nl>`_.
+`Certbot <https://certbot.eff.org>`_ DNS Authenticator plugin for `Exonet <https://www.exonet.nl>`_.
 
 Conventions
 -----------
@@ -50,7 +50,7 @@ Please see `CHANGELOG <https://github.com/exonet/certbot-dns-exonet/blob/master/
 
 Security
 --------
-If you discover any security related issues please email `support@exonet.nl <mailto:support@exonet.nl>`_ instead of using the issue tracker.
+If you discover any security related issues please email `development@exonet.nl <mailto:development@exonet.nl>`_ instead of using the issue tracker.
 
 Credits
 -------
