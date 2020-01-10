@@ -2,5 +2,5 @@ acme==1.0.0
 certbot==1.0.0
 exonetapi==2.1.0
 tldextract==2.2.2
-requests==2.0.0
+requests==2.20.0
 zope.interface==4.7.1
