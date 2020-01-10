@@ -1,7 +1,10 @@
 import sys
 
-from setuptools import find_packages
-from setuptools import setup
+from setuptools import setup, find_packages
+
+from codecs import open
+from os import path
+
 
 version = '1.0.0'
 
@@ -15,10 +18,16 @@ install_requires = [
     'zope.interface',
 ]
 
+here = path.abspath(path.dirname(__file__))
+# Get the long description from the README file
+with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
+    long_description = f.read()
+
 setup(
     name='certbot-dns-exonet',
     version=version,
     description="Exonet DNS Authenticator plugin for Certbot",
+    long_description=long_description,
     url='https://github.com/exonet/certbot-dns-exonet',
     author="Exonet B.V.",
     author_email='development@exonet.nl',
