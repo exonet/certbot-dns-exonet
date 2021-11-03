@@ -6,7 +6,7 @@ from codecs import open
 from os import path
 
 
-version = '1.0.0'
+version = '1.0.2'
 
 install_requires = [
     'acme',
@@ -43,7 +43,7 @@ setup(
 
     },
     classifiers=[
-        'Development Status :: 3 - Alpha',
+        'Development Status :: 5 - Production/Stable',
         'Environment :: Plugins',
         'Intended Audience :: System Administrators',
         'License :: OSI Approved :: MIT License',
