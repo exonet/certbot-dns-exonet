@@ -26,23 +26,22 @@ Usage
 
 1. Request an Exonet API token (`contact Exonet <https://www.exonet.nl/contact>`_)
 
-2. Install the plugin using `pip install certbot-dns-exonet`
+2. After the installation, verify if the plugin is available in certbot::
 
-3. Create an `exonet.ini` config file with your Exonet API token in it::
+    certbot plugins
 
-    # Exonet API token used by Certbot.
-    certbot_dns_exonet:dns_exonet_token = YOUR_API_TOKEN
+3. Create an exonet.ini file::
 
+    touch /etc/letsencrypt/exonet.ini
+    chmod 0600 /etc/letsencrypt/exonet.ini
 
-  Where `YOUR_API_TOKEN` should be replaced by your actual Exonet API token.
+3. Add the Exonet API token in /etc/letsencrypt/exonet.ini::
 
-4. Set the right permissions on the credentials file to prevent unauthorized access by other users::
+    certbot_dns_exonet:dns_exonet_token = YOUR_EXONET_API_TOKEN
 
-    chmod 600 exonet.ini
-   
-5. Run `certbot` with this plugin as the authenticator and tell it to use the exonet.ini credentials file to connect to the Exonet DNS like so::
+5. Request a certificate with certbot and use this plugin to obtain a certificate using DNS record authentication::
 
-    certbot certonly --authenticator certbot-dns-exonet:dns-exonet --certbot-dns-exonet:dns-exonet-credentials exonet.ini -d domain.com
+    certbot certonly --authenticator certbot-dns-exonet:dns-exonet --certbot-dns-exonet:dns-exonet-credentials /etc/letsencrypt/exonet.ini -d domain.com
 
 Change log
 ----------
