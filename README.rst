@@ -39,7 +39,7 @@ Usage
 
     certbot_dns_exonet:dns_exonet_token = YOUR_EXONET_API_TOKEN
 
-5. Request a certificate with certbot and use this plugin to obtain a certificate using DNS record authentication::
+5. Request a certificate with certbot and this plugin to obtain a certificate using DNS record authentication::
 
     certbot certonly --authenticator certbot-dns-exonet:dns-exonet --certbot-dns-exonet:dns-exonet-credentials /etc/letsencrypt/exonet.ini -d domain.com
 
