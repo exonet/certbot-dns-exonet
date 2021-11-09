@@ -6,12 +6,12 @@ from codecs import open
 from os import path
 
 
-version = '1.0.2'
+version = '1.0.4'
 
 install_requires = [
     'acme',
     'certbot',
-    'exonetapi>=2.1.0',
+    'exonetapi>=3.0.3',
     'tldextract',
     'setuptools',
     'requests',
@@ -32,7 +32,7 @@ setup(
     author="Exonet B.V.",
     author_email='development@exonet.nl',
     license='MIT',
-    python_requires='>=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*',
+    python_requires='>=3.5',
     packages=find_packages(),
     include_package_data=True,
     install_requires=install_requires,
@@ -49,10 +49,7 @@ setup(
         'License :: OSI Approved :: MIT License',
         'Operating System :: POSIX :: Linux',
         'Programming Language :: Python',
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
