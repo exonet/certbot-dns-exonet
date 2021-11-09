@@ -1,6 +1,6 @@
-requests==2.20.0
 zope.interface==4.7.1
 acme==1.7.0
 certbot==1.7.0
 exonetapi==3.0.3
 tldextract==3.1.0
+requests==2.25.1
