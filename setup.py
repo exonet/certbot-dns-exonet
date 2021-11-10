@@ -6,7 +6,7 @@ from codecs import open
 from os import path
 
 
-version = '1.0.4'
+version = '2.0.0'
 
 install_requires = [
     'acme',

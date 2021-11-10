@@ -45,7 +45,7 @@ Usage
 
 Change log
 ----------
-Please see `CHANGELOG <https://github.com/exonet/certbot-dns-exonet/blob/master/CHANGELOG.md>`_ for more information on what has changed recently.
+Please see `releases <https://github.com/exonet/certbot-dns-exonet/releases>`_ for more information on what has changed recently.
 
 Security
 --------
