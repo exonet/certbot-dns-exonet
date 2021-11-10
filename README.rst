@@ -7,6 +7,8 @@ Certbot plugin for authentication using the Exonet DNS
     :target: https://pypi.org/project/certbot-dns-exonet
 .. image:: https://img.shields.io/pypi/l/certbot-dns-exonet.svg?style=flat-square
     :target: https://github.com/exonet/certbot-dns-exonet/blob/master/LICENSE
+.. image:: https://img.shields.io/lgtm/grade/python/g/exonet/certbot-dns-exonet.svg
+   :target: https://lgtm.com/projects/g/exonet/certbot-dns-exonet/context:python
 
 `Certbot <https://certbot.eff.org>`_ DNS Authenticator plugin for `Exonet DNS <https://www.exonet.nl>`_.
 
