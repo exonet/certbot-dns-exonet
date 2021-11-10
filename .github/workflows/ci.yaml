@@ -1,0 +1,44 @@
+---
+name: CI
+
+# yamllint disable-line rule:truthy
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  run-tests:
+    name: 📦 Build & publish package
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v2
+
+      - name: 🛠 Set up Python all python version
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+
+      - name: 📦 Install build, check-wheel-contents, and twine
+        run: python -m pip install build
+
+      - name: 🔨 Build package
+        run: python -m build --sdist --wheel .
+
+      - name: 🌏 Publish distribution to Test PyPI
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          password: ${{ secrets.PYPI_API_TOKEN_TEST }}
+          repository_url: https://test.pypi.org/legacy/
+
+      - name: 🌏 Publish distribution to PyPI
+        if: startsWith(github.ref, 'refs/tags')
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          password: ${{ secrets.PYPI_API_TOKEN }}

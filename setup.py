@@ -1,12 +1,10 @@
-import sys
-
 from setuptools import setup, find_packages
 
 from codecs import open
 from os import path
 
 
-version = '1.0.4'
+version = '2.0.0'
 
 install_requires = [
     'acme',
@@ -54,6 +52,7 @@ setup(
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
         'Topic :: Internet :: WWW/HTTP',
         'Topic :: Security',
         'Topic :: System :: Installation/Setup',
