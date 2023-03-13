@@ -10,7 +10,9 @@ on:
 jobs:
   check-licenses:
     name: Check licenses for dependencies
-    runs-on: ubuntu-latest
+    runs-on:
+      - self-hosted
+      - development
 
     steps:
       - name: Checkout repository

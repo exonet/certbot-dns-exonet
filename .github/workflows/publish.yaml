@@ -8,7 +8,9 @@ on:
 jobs:
   publish:
     name: Build & publish package
-    runs-on: ubuntu-latest
+    runs-on:
+      - self-hosted
+      - development
 
     steps:
       - name: Checkout repository

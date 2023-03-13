@@ -8,7 +8,9 @@ on:
 jobs:
   pr-labels:
     name: Verify
-    runs-on: ubuntu-latest
+    runs-on:
+      - self-hosted
+      - development
 
     steps:
       - name: Verify PR has a valid label
