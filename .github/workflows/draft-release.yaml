@@ -1,17 +1,18 @@
 ---
-name: Draft Release
+name: Release Drafter
 
+# yamllint disable-line rule:truthy
 on:
   push:
     branches:
       - master
 
 jobs:
-  update-release-draft:
-    name: Update
+  update_release_draft:
+    name: ✏️ Draft release
     runs-on: ubuntu-latest
     steps:
-      - name: Run release drafter
+      - name: 🚀 Run Release Drafter
         uses: release-drafter/release-drafter@v5
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,6 +1,7 @@
 ---
-name: Sync labels
+name: Sync Labels
 
+# yamllint disable-line rule:truthy
 on:
   workflow_dispatch:
   push:
@@ -11,14 +12,13 @@ on:
 
 jobs:
   labels:
-    name: Sync labels
+    name: ♻️ Sync labels
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
+      - name: 📥 Checkout repository
         uses: actions/checkout@v3
 
-      - name: Run Label Syncer
-        uses: micnncim/action-label-syncer@v1.3.0
+      - name: 🚀 Run Label Syncer
+        uses: micnncim/action-label-syncer@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
