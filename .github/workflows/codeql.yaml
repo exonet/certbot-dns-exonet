@@ -13,7 +13,9 @@ on:
 jobs:
   codeql:
     name: Scanning
-    runs-on: ubuntu-latest
+    runs-on:
+      - self-hosted
+      - development
 
     strategy:
       fail-fast: false
