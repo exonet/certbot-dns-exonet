@@ -10,7 +10,9 @@ on:
 jobs:
   build:
     name: Build package
-    runs-on: ubuntu-latest
+    runs-on:
+      - self-hosted
+      - development
 
     steps:
       - name: Checkout repository
