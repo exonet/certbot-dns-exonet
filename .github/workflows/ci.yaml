@@ -12,7 +12,7 @@ jobs:
     name: Build package
     runs-on:
       - self-hosted
-      - development
+      - dind
 
     steps:
       - name: Checkout repository

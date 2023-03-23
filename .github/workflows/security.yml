@@ -12,7 +12,7 @@ jobs:
     name: Check licenses for dependencies
     runs-on:
       - self-hosted
-      - development
+      - dind
 
     steps:
       - name: Checkout repository
