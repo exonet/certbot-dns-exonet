@@ -10,9 +10,7 @@ on:
 jobs:
   build:
     name: Build package
-    runs-on:
-      - self-hosted
-      - dind
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository

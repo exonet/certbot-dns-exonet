@@ -12,9 +12,7 @@ on:
 jobs:
   labels:
     name: Sync labels
-    runs-on:
-      - self-hosted
-      - development
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
