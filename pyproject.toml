@@ -43,6 +43,10 @@ zope-interface = "^5.5.2"
 dns-exonet = "certbot_dns_exonet._internal.dns_exonet:Authenticator"
 
 
+
+[tool.poetry.group.dev.dependencies]
+wheel = "^0.40.0"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
