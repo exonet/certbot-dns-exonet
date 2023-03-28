@@ -1,0 +1,37 @@
+---
+name: Semgrep
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '20 6 * * *'
+  pull_request:
+
+jobs:
+  semgrep:
+    name: Run security scan
+    runs-on: ubuntu-latest
+    if: ${{ github.actor != 'dependabot[bot]' }}
+
+    container:
+      image: returntocorp/semgrep
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Run semgrep (PR)
+        if: ${{ github.event_name == 'pull_request' }}
+        run: |
+          semgrep scan \
+            --error \
+            --metrics=off \
+            --config="p/default"
+
+      - name: Run semgrep
+        if: ${{ github.event_name != 'pull_request' }}
+        run: semgrep ci
+        env:
+          SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}

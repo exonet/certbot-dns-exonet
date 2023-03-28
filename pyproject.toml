@@ -31,7 +31,7 @@ classifiers = [
 packages = [{include = "certbot_dns_exonet"}]
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = "^3.7.2"
 acme = "^2.4.0"
 certbot = "^2.4.0"
 exonetapi = "^3.0.3"
@@ -40,12 +40,143 @@ requests = "^2.28.2"
 zope-interface = "^5.5.2"
 
 [tool.poetry.plugins."certbot.plugins"]
-dns-exonet = "certbot_dns_exonet._internal.dns_exonet:Authenticator"
+dns-exonet = "certbot_dns_exonet.dns_exonet:Authenticator"
 
 
 
 [tool.poetry.group.dev.dependencies]
 wheel = "^0.40.0"
+bandit = "^1.7.5"
+black = "^23.1.0"
+blacken-docs = "^1.13.0"
+codespell = "^2.2.4"
+coverage = {version = "^7.2.2", extras = ["toml"]}
+darglint = "^1.8.1"
+flake8 = "^5.0.4"
+flake8-bandit = "^4.1.1"
+flake8-bugbear = "^23.3.12"
+flake8-builtins = "^2.1.0"
+flake8-comprehensions = "^3.11.1"
+flake8-docstrings = "^1.6.0"
+flake8-eradicate = "^1.4.0"
+flake8-markdown = "^0.4.0"
+flake8-simplify = "^0.19.3"
+isort = "^5.11.0"
+mypy = "^1.1"
+pre-commit = "^2.21.0"
+pre-commit-hooks = "^4.4.0"
+pylint = "^2.17.1"
+pytest = "^7.2.2"
+pytest-asyncio = "^0.21.0"
+pytest-cov = "^4.0.0"
+pyupgrade = "^3.3.1"
+safety = "^2.3.4"
+types-pyyaml = "^6.0.12.8"
+vulture = "^2.7"
+yamllint = "^1.30.0"
+types-requests = "^2.28.11.16"
+
+
+[tool.black]
+target-version = ['py39']
+
+[tool.coverage.paths]
+source = ["certbot_dns_exonet"]
+
+[tool.coverage.report]
+show_missing = true
+exclude_lines = ["pragma: no cover", "if TYPE_CHECKING:"]
+
+[tool.coverage.run]
+branch = true
+source = ["certbot_dns_exonet"]
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+
+[tool.bandit]
+exclude_dirs = ["tests"]
+
+[tool.mypy]
+# Specify the target platform details in config, so your developers are
+# free to run mypy on Windows, Linux, or macOS and get consistent
+# results.
+platform = "linux"
+python_version = 3.9
+
+# flake8-mypy expects the two following for sensible formatting
+show_column_numbers = true
+
+# show error messages from unrelated files
+follow_imports = "normal"
+
+# suppress errors about unsatisfied imports
+ignore_missing_imports = true
+
+# be strict
+check_untyped_defs = true
+disallow_any_generics = true
+disallow_incomplete_defs = true
+disallow_subclassing_any = true
+disallow_untyped_calls = true
+disallow_untyped_defs = true
+disallow_untyped_decorators = false # thanks backoff :(
+no_implicit_optional = true
+no_implicit_reexport = true
+strict_optional = true
+warn_incomplete_stub = true
+warn_no_return = true
+warn_redundant_casts = true
+warn_return_any = true
+warn_unused_configs = true
+warn_unused_ignores = true
+
+# No incremental mode
+cache_dir = "/dev/null"
+
+[tool.pylint.basic]
+good-names = [
+  "_",
+  "ex",
+  "fp",
+  "i",
+  "id",
+  "j",
+  "k",
+  "on",
+  "Run",
+  "T",
+  "db",
+]
+
+[tool.pylint.messages_control]
+disable= [
+    "too-few-public-methods",
+    "duplicate-code",
+    "format",
+    "unsubscriptable-object",
+    "too-many-locals",
+    "missing-module-docstring",
+]
+
+[tool.pylint.similarities]
+ignore-imports = true
+
+[tool.pylint.format]
+max-line-length=88
+
+[tool.pylint.design]
+max-attributes=20
+
+[tool.pytest.ini_options]
+addopts = "--cov"
+asyncio_mode = "auto"
+
+[tool.vulture]
+min_confidence = 80
+paths = ["certbot_dns_exonet"]
+verbose = true
 
 [build-system]
 requires = ["poetry-core"]
