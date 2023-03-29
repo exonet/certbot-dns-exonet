@@ -12,6 +12,8 @@ LOGGER = getLogger(__name__)
 class ExonetClient:
     """Encapsulates all communication with the Exonet API."""
 
+    client: Client
+
     def __init__(self, token: str) -> None:
         """Exonet client constructor.
 
@@ -20,6 +22,36 @@ class ExonetClient:
         """
         self.client = Client("https://api.bwe.exodev.nl")
         self.client.authenticator.set_token(token)
+
+    def post_api_resource(self, resource: ApiResource) -> ApiResource:
+        try:
+            return resource.post()
+        except HTTPError as exception:
+            error_message = f"Error adding TXT record using the Exonet API: {exception.response.text}"  # noqa: E501
+            LOGGER.debug(error_message)
+            raise PluginError(error_message) from exception
+
+    def find_dns_zone_by_name(self, domain_name):
+        # Convert to registered domain.
+        domain = tldextract.extract(domain_name).registered_domain  # type: ignore[attr-defined] # noqa: E501
+
+        # Get all available zones.
+        zones = self.client.resource("dns_zones").filter("name", domain).get()
+
+        # See if any zones match.
+        matches = [zone for zone in zones if zone.attribute("name") == domain]
+
+        # If a match is found, return it.
+        if matches:
+            zone = matches[0]
+            LOGGER.debug(
+                "Found DNS zone %s for domain %s", zone.attribute("name"), domain_name
+            )
+            return zone
+
+        raise PluginError(
+            f"Unable to find DNS zone for {domain_name}. Zone {domain} not found."
+        )
 
     def add_txt_record(
         self, domain_name: str, record_name: str, record_content: str
