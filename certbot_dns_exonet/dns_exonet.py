@@ -6,7 +6,7 @@ from certbot import interfaces
 from certbot.configuration import NamespaceConfig
 from certbot.plugins import dns_common
 
-from certbot_dns_exonet.clients.exonet_client import ExonetClient
+from certbot_dns_exonet.services.dns_service import DnsService
 
 LOGGER = logging.getLogger(__name__)
 
@@ -30,6 +30,8 @@ class Authenticator(dns_common.DNSAuthenticator):
         """
         super().__init__(config, name)
         self._setup_credentials()
+
+        self.dns_service = DnsService(self.credentials.conf("token"))
 
     @classmethod
     def add_parser_arguments(
@@ -71,7 +73,7 @@ class Authenticator(dns_common.DNSAuthenticator):
             validation_name: The validation name.
             validation: The validation.
         """
-        self._get_exonet_client().add_txt_record(domain, validation_name, validation)
+        self.dns_service.add_txt_record(domain, validation_name, validation)
 
     def _cleanup(self, domain: str, validation_name: str, validation: str) -> None:
         """Delete TXT DNS record using the Exonet API.
@@ -81,12 +83,4 @@ class Authenticator(dns_common.DNSAuthenticator):
             validation_name: The validation name.
             validation: The validation.
         """
-        self._get_exonet_client().del_txt_record(domain, validation_name, validation)
-
-    def _get_exonet_client(self) -> ExonetClient:
-        """Get the Exonet Client.
-
-        Returns:
-            ExonetClient: Instance of the ExonetClient class.
-        """
-        return ExonetClient(self.credentials.conf("token"))
+        self.dns_service.del_txt_record(domain, validation_name, validation)
