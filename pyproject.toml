@@ -40,7 +40,7 @@ requests = "^2.28.2"
 zope-interface = "^5.5.2"
 
 [tool.poetry.plugins."certbot.plugins"]
-dns-exonet = "certbot_dns_exonet.dns_exonet:Authenticator"
+dns-exonet = "certbot_dns_exonet.authenticators.exonet_authenticator:ExonetAuthenticator"
 
 
 

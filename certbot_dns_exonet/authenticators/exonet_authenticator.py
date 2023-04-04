@@ -13,7 +13,7 @@ LOGGER = logging.getLogger(__name__)
 
 @zope.interface.implementer(interfaces.IAuthenticator)
 @zope.interface.provider(interfaces.IPluginFactory)
-class Authenticator(dns_common.DNSAuthenticator):
+class ExonetAuthenticator(dns_common.DNSAuthenticator):
     """DNS Authenticator for Exonet.
 
     This Authenticator uses the Exonet API to fulfill a dns-01 challenge.
