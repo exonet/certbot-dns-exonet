@@ -1,5 +1,5 @@
 from argparse import Namespace
-from unittest.mock import Mock
+from unittest.mock import Mock, patch
 
 from certbot.configuration import NamespaceConfig
 
@@ -9,8 +9,14 @@ from certbot_dns_exonet.authenticators.exonet_authenticator import ExonetAuthent
 class TestExonetAuthenticator:
     """Test the Exonet Authenticator."""
 
-    def test_add_parser_arguments(self) -> None:
-        """Test add_parser_arguments function."""
+    @patch("certbot.plugins.dns_common.DNSAuthenticator._configure_credentials")
+    def test_add_parser_arguments(self, mock_configure_credentials: Mock) -> None:
+        """Test add_parser_arguments function.
+
+        Args:
+            mock_configure_credentials: Mock of
+                certbot.plugins.dns_common.DNSAuthenticator._configure_credentials.
+        """
         # Create input variables.
         config = NamespaceConfig(
             Namespace(
@@ -32,6 +38,7 @@ class TestExonetAuthenticator:
         authenticator.add_parser_arguments(add_mock)
 
         # Check mock calls.
+        assert mock_configure_credentials.call_count == 1
         assert add_mock.call_count == 2
 
         # Check call args.
@@ -46,8 +53,14 @@ class TestExonetAuthenticator:
         assert add_mock.call_args_list[1][0][0] == "credentials"
         assert add_mock.call_args_list[1][1]["help"] == "Exonet credentials INI file."
 
-    def test_more_info(self) -> None:
-        """Test the more_info function."""
+    @patch("certbot.plugins.dns_common.DNSAuthenticator._configure_credentials")
+    def test_more_info(self, mock_configure_credentials: Mock) -> None:
+        """Test the more_info function.
+
+        Args:
+            mock_configure_credentials: Mock of
+                certbot.plugins.dns_common.DNSAuthenticator._configure_credentials.
+        """
         # Create input variables.
         config = NamespaceConfig(
             Namespace(
@@ -65,6 +78,9 @@ class TestExonetAuthenticator:
         # Make the call/
         authenticator = ExonetAuthenticator(config, "dns-exonet")
         info = authenticator.more_info()
+
+        # Check mock calls.
+        assert mock_configure_credentials.call_count == 1
 
         # Check response.
         assert info == (
