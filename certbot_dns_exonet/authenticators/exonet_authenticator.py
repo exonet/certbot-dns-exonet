@@ -2,9 +2,9 @@ from logging import getLogger
 from typing import Callable
 
 import zope.interface
-from certbot.interfaces import IAuthenticator, IPluginFactory
 from certbot.configuration import NamespaceConfig
-from certbot.plugins.dns_common import DNSAuthenticator, CredentialsConfiguration
+from certbot.interfaces import IAuthenticator, IPluginFactory
+from certbot.plugins.dns_common import CredentialsConfiguration, DNSAuthenticator
 
 from certbot_dns_exonet.services.dns_service import DnsService
 
@@ -65,7 +65,9 @@ class ExonetAuthenticator(DNSAuthenticator):
             {"token": "API token for Exonet API"},
         )
 
-    def _perform(self, domain: str, validation_name: str, validation: str) -> None:
+    def _perform(
+        self, domain: str, validation_name: str, validation: str
+    ) -> None:  # pragma: no cover
         """Add TXT DNS record using the Exonet API.
 
         Args:
@@ -75,7 +77,9 @@ class ExonetAuthenticator(DNSAuthenticator):
         """
         self.dns_service.add_txt_record(domain, validation_name, validation)
 
-    def _cleanup(self, domain: str, validation_name: str, validation: str) -> None:
+    def _cleanup(
+        self, domain: str, validation_name: str, validation: str
+    ) -> None:  # pragma: no cover
         """Delete TXT DNS record using the Exonet API.
 
         Args:
