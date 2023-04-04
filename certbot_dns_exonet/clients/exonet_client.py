@@ -20,7 +20,7 @@ class ExonetClient:
         Args:
             token: Exonet token.
         """
-        self.client = Client("https://api.bwe.exodev.nl")
+        self.client = Client()
         self.client.authenticator.set_token(token)
 
     def post_api_resource(self, resource: ApiResource) -> ApiResource:
