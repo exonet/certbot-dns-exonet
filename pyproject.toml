@@ -43,7 +43,6 @@ zope-interface = "^5.5.2"
 dns-exonet = "certbot_dns_exonet.authenticators.exonet_authenticator:ExonetAuthenticator"
 
 
-
 [tool.poetry.group.dev.dependencies]
 wheel = "^0.40.0"
 bandit = "^1.7.5"

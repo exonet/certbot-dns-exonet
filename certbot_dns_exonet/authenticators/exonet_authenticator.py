@@ -1,25 +1,25 @@
-import logging
+from logging import getLogger
 from typing import Callable
 
 import zope.interface
-from certbot import interfaces
+from certbot.interfaces import IAuthenticator, IPluginFactory
 from certbot.configuration import NamespaceConfig
-from certbot.plugins import dns_common
+from certbot.plugins.dns_common import DNSAuthenticator, CredentialsConfiguration
 
 from certbot_dns_exonet.services.dns_service import DnsService
 
-LOGGER = logging.getLogger(__name__)
+LOGGER = getLogger(__name__)
 
 
-@zope.interface.implementer(interfaces.IAuthenticator)
-@zope.interface.provider(interfaces.IPluginFactory)
-class ExonetAuthenticator(dns_common.DNSAuthenticator):
+@zope.interface.implementer(IAuthenticator)
+@zope.interface.provider(IPluginFactory)
+class ExonetAuthenticator(DNSAuthenticator):
     """DNS Authenticator for Exonet.
 
     This Authenticator uses the Exonet API to fulfill a dns-01 challenge.
     """
 
-    credentials: dns_common.CredentialsConfiguration
+    credentials: CredentialsConfiguration
 
     def __init__(self, config: NamespaceConfig, name: str) -> None:
         """Construct the Authenticator class.
