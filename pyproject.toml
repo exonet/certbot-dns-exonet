@@ -168,6 +168,9 @@ max-line-length=88
 [tool.pylint.design]
 max-attributes=20
 
+[tool.pytest]
+filterwarnings = "ignore::DeprecationWarning"
+
 [tool.pytest.ini_options]
 addopts = "--cov"
 asyncio_mode = "auto"
