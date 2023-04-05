@@ -174,7 +174,7 @@ filterwarnings = "ignore::DeprecationWarning"
 addopts = "--cov"
 asyncio_mode = "auto"
 filterwarnings = [
-    "ignore::DeprecationWarning",
+    "ignore::DeprecationWarning", #Can be remove when https://sourceforge.net/p/ruamel-yaml/tickets/452/ is fixed
 ]
 
 [tool.vulture]
