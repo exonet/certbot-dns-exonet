@@ -1,8 +1,8 @@
 from logging import getLogger
 
-import tldextract
 from certbot.errors import PluginError
 from exonetapi.structures import ApiResource
+from tldextract import extract  # type: ignore[attr-defined]
 
 from certbot_dns_exonet.clients.exonet_client import ExonetClient
 
@@ -36,12 +36,12 @@ class DnsService:
              PluginError: PluginError: If an error occurs while finding DNS zone.
         """
         # Convert to registered domain.
-        domain = tldextract.extract(domain_name).registered_domain  # type: ignore[attr-defined] # noqa: E501
+        domain = extract(domain_name).registered_domain
 
         # Find the DNS zone.
         zone = self.client.find_dns_zone_by_name(domain)
 
-        # If a zone is found, return it.
+        # If a zone is found, raise exception.
         if not zone:
             raise PluginError(
                 f"Unable to find DNS zone for {domain_name}. Zone {domain} not found."
@@ -84,7 +84,7 @@ class DnsService:
              PluginError: PluginError: If no DNS records are found for a domain.
         """
         # Convert to registered domain.
-        domain = tldextract.extract(domain_name).registered_domain  # type: ignore[attr-defined] # noqa: E501
+        domain = extract(domain_name).registered_domain
 
         # Find the DNS zone.
         zone = self.client.find_dns_zone_by_name(domain)
@@ -92,9 +92,11 @@ class DnsService:
         # Get DNS records for DNS zone.
         domain_records = self.client.get_relation(zone, "records")
 
+        # If no records are found raise exception.
         if not domain_records:
             raise PluginError(f"Unable to find DNS records for {zone}.")
 
+        # Get all matching records.
         matching_records = [
             record
             for record in domain_records
@@ -104,6 +106,7 @@ class DnsService:
             == self._compute_record_content(record_content)
         ]
 
+        # Delete all matching records.
         for record in matching_records:
             self.client.delete_api_resource(record)
 

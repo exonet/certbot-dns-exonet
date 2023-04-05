@@ -75,7 +75,7 @@ class ExonetClient:
             return resource.related(relation_name).get()
         except HTTPError as exception:
             LOGGER.debug(
-                "Error removing %s from the Exonet API: %s",
+                "Error getting %s from the Exonet API: %s",
                 type(resource).__name__,
                 exception.response.text,
             )
