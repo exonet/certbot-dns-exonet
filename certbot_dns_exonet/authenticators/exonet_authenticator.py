@@ -1,9 +1,7 @@
 from logging import getLogger
 from typing import Callable
 
-import zope.interface
 from certbot.configuration import NamespaceConfig
-from certbot.interfaces import IAuthenticator, IPluginFactory
 from certbot.plugins.dns_common import CredentialsConfiguration, DNSAuthenticator
 
 from certbot_dns_exonet.services.dns_service import DnsService
@@ -11,8 +9,6 @@ from certbot_dns_exonet.services.dns_service import DnsService
 LOGGER = getLogger(__name__)
 
 
-@zope.interface.implementer(IAuthenticator)
-@zope.interface.provider(IPluginFactory)
 class ExonetAuthenticator(DNSAuthenticator):
     """DNS Authenticator for Exonet.
 

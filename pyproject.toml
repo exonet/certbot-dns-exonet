@@ -32,12 +32,11 @@ packages = [{include = "certbot_dns_exonet"}]
 
 [tool.poetry.dependencies]
 python = "^3.7.2"
-acme = "^2.4.0"
-certbot = "^2.4.0"
-exonetapi = "^3.0.3"
-tldextract = "^3.4.0"
 requests = "^2.28.2"
-zope-interface = "^5.5.2"
+tldextract = "^3.4.0"
+acme = "^2.5.0"
+exonetapi = "^3.0.3"
+certbot = "^2.5.0"
 
 [tool.poetry.plugins."certbot.plugins"]
 dns-exonet = "certbot_dns_exonet.authenticators.exonet_authenticator:ExonetAuthenticator"
@@ -174,6 +173,9 @@ filterwarnings = "ignore::DeprecationWarning"
 [tool.pytest.ini_options]
 addopts = "--cov"
 asyncio_mode = "auto"
+filterwarnings = [
+    "ignore::DeprecationWarning",
+]
 
 [tool.vulture]
 min_confidence = 80
