@@ -10,7 +10,6 @@ jobs:
   mypy:
     name: mypy on Python ${{ matrix.python }}
     runs-on: ubuntu-latest
-    if: ${{ github.actor != 'dependabot[bot]' }}
     strategy:
       fail-fast: false
       matrix:

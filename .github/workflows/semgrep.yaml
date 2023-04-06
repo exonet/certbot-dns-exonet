@@ -13,7 +13,6 @@ jobs:
   semgrep:
     name: Run security scan
     runs-on: ubuntu-latest
-    if: ${{ github.actor != 'dependabot[bot]' }}
 
     container:
       image: returntocorp/semgrep
