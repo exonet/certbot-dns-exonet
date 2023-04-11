@@ -15,6 +15,8 @@ class ExonetAuthenticator(DNSAuthenticator):
     This Authenticator uses the Exonet API to fulfill a dns-01 challenge.
     """
 
+    description = "Obtain certificates using a DNS TXT record with the Exonet DNS."
+
     credentials: CredentialsConfiguration
 
     def __init__(self, config: NamespaceConfig, name: str) -> None:
