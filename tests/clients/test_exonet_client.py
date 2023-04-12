@@ -1,4 +1,3 @@
-"""Test exonet Client."""
 from unittest.mock import Mock, patch
 
 from certbot.errors import PluginError

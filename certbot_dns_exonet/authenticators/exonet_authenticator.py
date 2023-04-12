@@ -10,7 +10,7 @@ LOGGER = getLogger(__name__)
 
 
 class ExonetAuthenticator(DNSAuthenticator):
-    """DNS Authenticator for Exonet.
+    """DNS Authenticator for the Exonet API.
 
     This Authenticator uses the Exonet API to fulfill a dns-01 challenge.
     """

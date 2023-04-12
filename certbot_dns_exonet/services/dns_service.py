@@ -10,7 +10,7 @@ LOGGER = getLogger(__name__)
 
 
 class DnsService:
-    """Dns service."""
+    """Service containing all DNS logic."""
 
     client: ExonetClient
 
