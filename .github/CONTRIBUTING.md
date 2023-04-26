@@ -8,7 +8,7 @@ We accept contributions via Pull Requests on [Github](https://github.com/exonet/
 
 - **[PEP 8 Coding Standard](https://www.python.org/dev/peps/pep-0008/)**.
 
-- **Document any change in behaviour** - Make sure the `README.rst` and any other relevant documentation are kept up-to-date.
+- **Document any change in behaviour** - Make sure the `README.md` and any other relevant documentation are kept up-to-date.
 
 - **Consider our release cycle** - We try to follow [SemVer v2.0.0](http://semver.org/). Randomly breaking public code is not an option.
 
