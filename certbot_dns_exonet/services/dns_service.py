@@ -2,7 +2,7 @@ from logging import getLogger
 
 from certbot.errors import PluginError
 from exonetapi.structures import ApiResource
-from tldextract import extract  # type: ignore[attr-defined]
+from tldextract import extract
 
 from certbot_dns_exonet.clients.exonet_client import ExonetClient
 

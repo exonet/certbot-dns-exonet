@@ -24,7 +24,7 @@ class ExonetAuthenticator(DNSAuthenticator):
 
         Args:
             config: Authenticator config.
-            name: created by name.
+            name: Created by name.
         """
         super().__init__(config, name)
         self._setup_credentials()

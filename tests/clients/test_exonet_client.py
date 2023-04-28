@@ -14,10 +14,10 @@ class TestExonetClient:
 
     @patch("exonetapi.auth.Authenticator.set_token")
     def test_authenticate(self, mock_set_token: Mock) -> None:
-        """Test exonet client validation.
+        """Test Exonet client validation.
 
         Args:
-            mock_set_token: mock of set_token function from the Exonet API.
+            mock_set_token: Mock of set_token function from the Exonet API.
         """
         # Authenticate using Exonet client.
         ExonetClient("kaSD0ffAD1ldSA92A0KODkaksda02KDAK")
@@ -33,9 +33,9 @@ class TestExonetClient:
 
         Args:
             mock_post: Mock of
-                exonetapi.structures.ApiResource.post
+                exonetapi.structures.ApiResource.post.
             mock_set_token: Mock of
-                exonetapi.auth.Authenticator.set_token
+                exonetapi.auth.Authenticator.set_token.
         """
         exonet_client = ExonetClient("kaSD0ffAD1ldSA92A0KODkaksda02KDAK")
         exonet_client.post_api_resource(
@@ -58,9 +58,9 @@ class TestExonetClient:
 
         Args:
             mock_post: Mock of
-                exonetapi.structures.ApiResource.post
+                exonetapi.structures.ApiResource.post.
             mock_set_token: Mock of
-                exonetapi.auth.Authenticator.set_token
+                exonetapi.auth.Authenticator.set_token.
         """
         response = Mock(spec=Response)
         response.text = "This is broken"
@@ -95,9 +95,9 @@ class TestExonetClient:
 
         Args:
             mock_delete: Mock of
-                exonetapi.structures.ApiResource.delete
+                exonetapi.structures.ApiResource.delete.
             mock_set_token: Mock of
-                exonetapi.auth.Authenticator.set_token
+                exonetapi.auth.Authenticator.set_token.
         """
         exonet_client = ExonetClient("kaSD0ffAD1ldSA92A0KODkaksda02KDAK")
         exonet_client.delete_api_resource(
@@ -120,9 +120,9 @@ class TestExonetClient:
 
         Args:
             mock_delete: Mock of
-                exonetapi.structures.ApiResource.post
+                exonetapi.structures.ApiResource.post.
             mock_set_token: Mock of
-                exonetapi.auth.Authenticator.set_token
+                exonetapi.auth.Authenticator.set_token.
         """
         response = Mock(spec=Response)
         response.text = "This is broken"
@@ -150,9 +150,9 @@ class TestExonetClient:
 
         Args:
             mock_get: Mock of
-                exonetapi.RequestBuilder.get
+                exonetapi.RequestBuilder.get.
             mock_set_token: Mock of
-                exonetapi.auth.Authenticator.set_token
+                exonetapi.auth.Authenticator.set_token.
         """
         exonet_client = ExonetClient("kaSD0ffAD1ldSA92A0KODkaksda02KDAK")
         exonet_client.get_relation(
@@ -175,9 +175,9 @@ class TestExonetClient:
 
         Args:
             mock_get: Mock of
-                exonetapi.RequestBuilder.get
+                exonetapi.RequestBuilder.get.
             mock_set_token: Mock of
-                exonetapi.auth.Authenticator.set_token
+                exonetapi.auth.Authenticator.set_token.
         """
         response = Mock(spec=Response)
         response.text = "This is broken"
@@ -207,9 +207,9 @@ class TestExonetClient:
 
         Args:
             mock_get: Mock of
-                exonetapi.RequestBuilder.get
+                exonetapi.RequestBuilder.get.
             mock_set_token: Mock of
-                exonetapi.auth.Authenticator.set_token
+                exonetapi.auth.Authenticator.set_token.
         """
         api_resource_set = ApiResourceSet()
         api_resource_set.add_resource(
@@ -240,9 +240,9 @@ class TestExonetClient:
 
         Args:
             mock_get: Mock of
-                exonetapi.RequestBuilder.get
+                exonetapi.RequestBuilder.get.
             mock_set_token: Mock of
-                exonetapi.auth.Authenticator.set_token
+                exonetapi.auth.Authenticator.set_token.
         """
         response = Mock(spec=Response)
         response.text = "This is broken"
