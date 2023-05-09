@@ -88,10 +88,10 @@ class ExonetClient:
             domain: The registered domain name.
 
         Raises:
-            PluginError: If no matching Domain is found.
+            PluginError: If no matching domain is found.
 
         Returns:
-            The Domain, if found.
+            The domain, if found.
         """
         try:
             # Get zone based on attribute name.
