@@ -29,7 +29,7 @@ class ExonetAuthenticator(DNSAuthenticator):
         super().__init__(config, name)
         self._setup_credentials()
 
-        self.dns_service = DnsService(self.credentials.conf("token"))
+        self.dns_service = DnsService(str(self.credentials.conf("token")))
 
     @classmethod
     def add_parser_arguments(
