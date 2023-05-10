@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "certbot-dns-exonet"
-version = "2.0.0"
+version = "3.0.0"
 description = "Exonet DNS Authenticator plugin for Certbot"
 authors = ["Exonet <development@exonet.nl>"]
 license = "MIT"
