@@ -31,11 +31,17 @@ Install using pip:
     ```
 3. Add the Exonet API token in /etc/letsencrypt/exonet.ini:
     ```bash
-        certbot_dns_exonet:dns_exonet_token = YOUR_EXONET_API_TOKEN
+        dns_exonet_token = YOUR_EXONET_API_TOKEN
     ```
 5. Request a certificate with certbot and this plugin to obtain a certificate using DNS record authentication:
     ```bash
-        certbot certonly --authenticator certbot-dns-exonet:dns-exonet --certbot-dns-exonet:dns-exonet-credentials /etc/letsencrypt/exonet.ini -d domain.com
+        certbot certonly \
+            --config-dir /etc/letsencrypt \
+            --work-dir /etc/letsencrypt \
+            --logs-dir /etc/letsencrypt \
+            --authenticator dns-exonet \
+            --dns-exonet-credentials /etc/letsencrypt/exonet.ini \
+            -d domain.com
     ```
 
 # Change log
