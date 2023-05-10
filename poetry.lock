@@ -2,18 +2,18 @@
 
 [[package]]
 name = "acme"
-version = "2.5.0"
+version = "2.6.0"
 description = "ACME protocol implementation in Python"
 category = "main"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "acme-2.5.0-py3-none-any.whl", hash = "sha256:416586ed660c5ebcec1e16a134d2e522ac6d6fc4f972955354f0b1a7e61ac97c"},
-    {file = "acme-2.5.0.tar.gz", hash = "sha256:9c760b115c54f55f692321abe5d09f5c70ce437e61f9f22340341621d9909a5a"},
+    {file = "acme-2.6.0-py3-none-any.whl", hash = "sha256:261e8655034f3afe099e68a9c5061304f5ba0c1625ec1b8288fc228315bacbdf"},
+    {file = "acme-2.6.0.tar.gz", hash = "sha256:607360db73e458150ab63825a82b220bdf04badbd81c6d3218e5d993c6be491c"},
 ]
 
 [package.dependencies]
-cryptography = ">=2.5.0"
+cryptography = ">=3.2.1"
 josepy = ">=1.13.0"
 PyOpenSSL = ">=17.5.0,<23.1.0 || >23.1.0"
 pyrfc3339 = "*"
@@ -169,21 +169,21 @@ black = ">=22.1.0"
 
 [[package]]
 name = "certbot"
-version = "2.5.0"
+version = "2.6.0"
 description = "ACME client"
 category = "main"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "certbot-2.5.0-py3-none-any.whl", hash = "sha256:a2d730753124508effe79f648264f5cab4d1e9120acfd695a4a0c2b7bab4a966"},
-    {file = "certbot-2.5.0.tar.gz", hash = "sha256:76e6e5305021d3ee54c42fc471f8f0ed5dba790e6fd7fef6713060b0e42b97d7"},
+    {file = "certbot-2.6.0-py3-none-any.whl", hash = "sha256:6513b9fb3d266f1fa3803a1713eb7e415bbc250b624c834e02cb71086b26d800"},
+    {file = "certbot-2.6.0.tar.gz", hash = "sha256:c4de6bb0d092729650ed90a5bdb513932bdc47ec5f7f98049180ab8e4a835dab"},
 ]
 
 [package.dependencies]
-acme = ">=2.5.0"
+acme = ">=2.6.0"
 ConfigArgParse = ">=0.9.3"
 configobj = ">=5.0.6"
-cryptography = ">=2.5.0"
+cryptography = ">=3.2.1"
 distro = ">=1.0.1"
 josepy = ">=1.13.0"
 parsedatetime = ">=2.4"
@@ -193,10 +193,10 @@ pywin32 = {version = ">=300", markers = "sys_platform == \"win32\""}
 setuptools = ">=41.6.0"
 
 [package.extras]
-all = ["Sphinx (>=1.2)", "azure-devops", "coverage", "ipdb", "mypy", "pip", "poetry (>=1.2.0)", "poetry-plugin-export (>=1.1.0)", "pylint", "pytest", "pytest-cov", "pytest-xdist", "setuptools", "sphinx-rtd-theme", "tox", "twine", "types-pyOpenSSL", "types-pyRFC3339", "types-pytz", "types-requests", "types-setuptools", "types-six", "typing-extensions", "wheel"]
+all = ["Sphinx (>=1.2)", "azure-devops", "coverage", "ipdb", "mypy", "pip", "poetry (>=1.2.0)", "poetry-plugin-export (>=1.1.0)", "pylint", "pytest", "pytest-cov", "pytest-xdist", "setuptools", "sphinx-rtd-theme", "tox", "twine", "types-httplib2", "types-pyOpenSSL", "types-pyRFC3339", "types-pytz", "types-pywin32", "types-requests", "types-setuptools", "types-six", "typing-extensions", "wheel"]
 dev = ["azure-devops", "ipdb", "poetry (>=1.2.0)", "poetry-plugin-export (>=1.1.0)", "twine"]
 docs = ["Sphinx (>=1.2)", "sphinx-rtd-theme"]
-test = ["coverage", "mypy", "pip", "pylint", "pytest", "pytest-cov", "pytest-xdist", "setuptools", "tox", "types-pyOpenSSL", "types-pyRFC3339", "types-pytz", "types-requests", "types-setuptools", "types-six", "typing-extensions", "wheel"]
+test = ["coverage", "mypy", "pip", "pylint", "pytest", "pytest-cov", "pytest-xdist", "setuptools", "tox", "types-httplib2", "types-pyOpenSSL", "types-pyRFC3339", "types-pytz", "types-pywin32", "types-requests", "types-setuptools", "types-six", "typing-extensions", "wheel"]
 
 [[package]]
 name = "certifi"
@@ -1642,14 +1642,14 @@ jupyter = ["ipywidgets (>=7.5.1,<9)"]
 
 [[package]]
 name = "ruamel-yaml"
-version = "0.17.24"
+version = "0.17.26"
 description = "ruamel.yaml is a YAML parser/emitter that supports roundtrip preservation of comments, seq/map flow style, and map key order"
 category = "dev"
 optional = false
 python-versions = ">=3"
 files = [
-    {file = "ruamel.yaml-0.17.24-py3-none-any.whl", hash = "sha256:f251bd9096207af604af69d6495c3c650a3338d0493d27b04bc55477d7a884ed"},
-    {file = "ruamel.yaml-0.17.24.tar.gz", hash = "sha256:90e398ee24524ebe20fc48cd1861cedd25520457b9a36cfb548613e57fde30a0"},
+    {file = "ruamel.yaml-0.17.26-py3-none-any.whl", hash = "sha256:25d0ee82a0a9a6f44683dcf8c282340def4074a4562f3a24f55695bb254c1693"},
+    {file = "ruamel.yaml-0.17.26.tar.gz", hash = "sha256:baa2d0a5aad2034826c439ce61c142c07082b76f4791d54145e131206e998059"},
 ]
 
 [package.dependencies]
