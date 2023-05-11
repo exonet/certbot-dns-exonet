@@ -54,9 +54,6 @@ coverage.xml
 .hypothesis/
 .pytest_cache/
 
-# Ignore PyCharm IDE config.
-/.idea/
-
 # Translations
 *.mo
 *.pot
@@ -133,3 +130,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# VSCode
+.vscode
