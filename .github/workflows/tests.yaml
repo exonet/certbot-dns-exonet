@@ -8,22 +8,22 @@ on:
 
 jobs:
   pytest:
-    name: Python ${{ matrix.python }} on ${{ matrix.os }}
+    name: Python ${{ matrix.python-version }}
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        python: ["3.7","3.8","3.9","3.10"]
+        python-version: ['3.7', '3.8', '3.9', '3.10', '3.11']
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Set up Python ${{ matrix.python }}
+      - name: Set up Python ${{ matrix.python-version }}
         id: python
         uses: actions/setup-python@v4
         with:
-          python-version: ${{ matrix.python }}
+          python-version: ${{ matrix.python-version }}
 
       - name: Set pip cache dir
         id: pip-cache
@@ -38,7 +38,16 @@ jobs:
           restore-keys: |
             pip-${{ runner.os }}-v3-${{ steps.python.outputs.python-version }}-
 
+      - name: Install Poetry 1.5.1
+        if: ${{ matrix.python-version == '3.7' }}
+        uses: snok/install-poetry@v1
+        with:
+          version: 1.5.1
+          virtualenvs-create: true
+          virtualenvs-in-project: true
+
       - name: Install workflow dependencies
+        if: ${{ matrix.python-version != '3.7' }}
         run: |
           pip install -r .github/workflows/requirements.txt
           poetry config virtualenvs.create true
@@ -62,7 +71,7 @@ jobs:
       - name: Upload coverage artifact
         uses: actions/upload-artifact@v3
         with:
-          name: coverage-${{ matrix.python }}-${{ matrix.os }}
+          name: coverage-${{ matrix.python-version }}
           path: .coverage
 
   coverage:
@@ -75,11 +84,11 @@ jobs:
       - name: Download coverage data
         uses: actions/download-artifact@v3
 
-      - name: Set up Python 3.10
+      - name: Set up Python 3.11
         id: python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.10'
+          python-version: 3.11
 
       - name: Set pip cache dir
         id: pip-cache
