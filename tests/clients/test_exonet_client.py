@@ -1,7 +1,9 @@
 from unittest.mock import Mock, patch
 
 from certbot.errors import PluginError
+from exonetapi.auth.Authenticator import Authenticator
 from exonetapi.structures import ApiResource, ApiResourceSet
+from exonetapi.RequestBuilder import RequestBuilder
 from pytest import raises
 from requests import Response
 from requests.exceptions import HTTPError
@@ -12,7 +14,7 @@ from certbot_dns_exonet.clients.exonet_client import ExonetClient
 class TestExonetClient:
     """The Exonet test Client."""
 
-    @patch("exonetapi.auth.Authenticator.set_token")
+    @patch.object(Authenticator, "set_token")
     def test_authenticate(self, mock_set_token: Mock) -> None:
         """Test Exonet client validation.
 
@@ -26,8 +28,8 @@ class TestExonetClient:
         assert mock_set_token.call_args[0][0] == "kaSD0ffAD1ldSA92A0KODkaksda02KDAK"
         assert mock_set_token.call_count == 1
 
-    @patch("exonetapi.auth.Authenticator.set_token")
-    @patch("exonetapi.structures.ApiResource.post")
+    @patch.object(Authenticator, "set_token")
+    @patch.object(ApiResource, "post")
     def test_post_api_resource(self, mock_post: Mock, mock_set_token: Mock) -> None:
         """Test posting an ApiResource to the Exonet API.
 
@@ -49,8 +51,8 @@ class TestExonetClient:
         # Check call args.
         assert mock_set_token.call_args[0][0] == "kaSD0ffAD1ldSA92A0KODkaksda02KDAK"
 
-    @patch("exonetapi.auth.Authenticator.set_token")
-    @patch("exonetapi.structures.ApiResource.post")
+    @patch.object(Authenticator, "set_token")
+    @patch.object(ApiResource, "post")
     def test_post_api_resource_http_error(
         self, mock_post: Mock, mock_set_token: Mock
     ) -> None:
@@ -88,8 +90,8 @@ class TestExonetClient:
         # Check call args.
         assert mock_set_token.call_args[0][0] == "kaSD0ffAD1ldSA92A0KODkaksda02KDAK"
 
-    @patch("exonetapi.auth.Authenticator.set_token")
-    @patch("exonetapi.structures.ApiResource.delete")
+    @patch.object(Authenticator, "set_token")
+    @patch.object(ApiResource, "delete")
     def test_delete_api_resource(self, mock_delete: Mock, mock_set_token: Mock) -> None:
         """Test deleting an ApiResource to the Exonet API.
 
@@ -111,8 +113,8 @@ class TestExonetClient:
         # Check call args.
         assert mock_set_token.call_args[0][0] == "kaSD0ffAD1ldSA92A0KODkaksda02KDAK"
 
-    @patch("exonetapi.auth.Authenticator.set_token")
-    @patch("exonetapi.structures.ApiResource.delete")
+    @patch.object(Authenticator, "set_token")
+    @patch.object(ApiResource, "delete")
     def test_delete_api_resource_http_error(
         self, mock_delete: Mock, mock_set_token: Mock
     ) -> None:
@@ -143,8 +145,8 @@ class TestExonetClient:
         # Check call args.
         assert mock_set_token.call_args[0][0] == "kaSD0ffAD1ldSA92A0KODkaksda02KDAK"
 
-    @patch("exonetapi.auth.Authenticator.set_token")
-    @patch("exonetapi.RequestBuilder.get")
+    @patch.object(Authenticator, "set_token")
+    @patch.object(RequestBuilder, "get")
     def test_get_relation(self, mock_get: Mock, mock_set_token: Mock) -> None:
         """Test get_relation method from Exonet client.
 
@@ -166,8 +168,8 @@ class TestExonetClient:
         # Check call args.
         assert mock_set_token.call_args[0][0] == "kaSD0ffAD1ldSA92A0KODkaksda02KDAK"
 
-    @patch("exonetapi.auth.Authenticator.set_token")
-    @patch("exonetapi.RequestBuilder.get")
+    @patch.object(Authenticator, "set_token")
+    @patch.object(RequestBuilder, "get")
     def test_get_relation_http_error(
         self, mock_get: Mock, mock_set_token: Mock
     ) -> None:
@@ -200,8 +202,8 @@ class TestExonetClient:
         # Check response.
         assert call_response is None
 
-    @patch("exonetapi.auth.Authenticator.set_token")
-    @patch("exonetapi.RequestBuilder.get")
+    @patch.object(Authenticator, "set_token")
+    @patch.object(RequestBuilder, "get")
     def test_find_dns_zone_by_name(self, mock_get: Mock, mock_set_token: Mock) -> None:
         """Test the find_dns_zone_by_name function from the Exonet client.
 
@@ -231,8 +233,8 @@ class TestExonetClient:
         # Check response data.
         assert isinstance(zone, ApiResource)
 
-    @patch("exonetapi.auth.Authenticator.set_token")
-    @patch("exonetapi.RequestBuilder.get")
+    @patch.object(Authenticator, "set_token")
+    @patch.object(RequestBuilder, "get")
     def test_find_dns_zone_by_name_http_error(
         self, mock_get: Mock, mock_set_token: Mock
     ) -> None:
