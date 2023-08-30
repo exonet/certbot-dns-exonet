@@ -2,8 +2,8 @@ from unittest.mock import Mock, patch
 
 from certbot.errors import PluginError
 from exonetapi.auth.Authenticator import Authenticator
-from exonetapi.structures import ApiResource, ApiResourceSet
 from exonetapi.RequestBuilder import RequestBuilder
+from exonetapi.structures import ApiResource, ApiResourceSet
 from pytest import raises
 from requests import Response
 from requests.exceptions import HTTPError
