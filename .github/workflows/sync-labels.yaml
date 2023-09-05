@@ -16,7 +16,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Run Label Syncer
         uses: micnncim/action-label-syncer@3abd5ab72fda571e69fffd97bd4e0033dd5f495c #1.3.0
