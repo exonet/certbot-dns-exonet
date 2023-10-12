@@ -35,7 +35,7 @@ packages = [{include = "certbot_dns_exonet"}]
 [tool.poetry.dependencies]
 python = "^3.7.2, < 3.12"
 requests = "^2.28.2"
-tldextract = "^3.4.0"
+tldextract = ">=3.4,<5.0"
 acme = "^2.5.0"
 exonetapi = "^3.0.3"
 certbot = "^2.5.0"

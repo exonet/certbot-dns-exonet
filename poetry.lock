@@ -1746,13 +1746,13 @@ pbr = ">=2.0.0,<2.1.0 || >2.1.0"
 
 [[package]]
 name = "tldextract"
-version = "3.6.0"
+version = "4.0.0"
 description = "Accurately separates a URL's subdomain, domain, and public suffix, using the Public Suffix List (PSL). By default, this includes the public ICANN TLDs and their exceptions. You can optionally support the Public Suffix List's private domains as well."
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "tldextract-3.6.0-py3-none-any.whl", hash = "sha256:30a492de80f4de215aa998588ba5c2e625ee74ace3a2705cfb52b0021053bcbe"},
-    {file = "tldextract-3.6.0.tar.gz", hash = "sha256:a5d8b6583791daca268a7592ebcf764152fa49617983c49916ee9de99b366222"},
+    {file = "tldextract-4.0.0-py3-none-any.whl", hash = "sha256:9950afba41f7dfda3ef3fcc8fdc12790c22a662c5b4e6d1d796eff32bf7048dc"},
+    {file = "tldextract-4.0.0.tar.gz", hash = "sha256:d220175f4a6367f5d2b5ad0e335292b449233b7cec7534416e7231babd00ba8e"},
 ]
 
 [package.dependencies]
@@ -2077,4 +2077,4 @@ testing = ["big-O", "flake8 (<5)", "jaraco.functools", "jaraco.itertools", "more
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.7.2, < 3.12"
-content-hash = "7ff2a498650adef837b8124cde0f07634526fc720cc8163a56be2fcc47de4784"
+content-hash = "668eecc4173e04afcdfcbb6ef546aafc9d211276d3e7d77d5d6d73fcdef22dc2"
