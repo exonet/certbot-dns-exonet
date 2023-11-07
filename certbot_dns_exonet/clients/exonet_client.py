@@ -38,7 +38,8 @@ class ExonetClient:
         try:
             return resource.post()
         except HTTPError as exception:
-            error_message = f"Error adding {type(resource).__name__} using the Exonet API: {exception.response.text}"  # noqa: E501
+            description = f": {exception.response.text}" if exception.response else ""
+            error_message = f"Error adding {type(resource).__name__} using the Exonet API{description}"  # noqa: E501
             LOGGER.debug(error_message)
             raise PluginError(error_message) from exception
 
@@ -52,11 +53,12 @@ class ExonetClient:
             LOGGER.debug("Deleting DNS record with id: %s", resource.id())
             resource.delete()
         except HTTPError as exception:
+            description = f": {exception.response.text}" if exception.response else ""
             LOGGER.warning(
-                "Error deleting %s %s using the Exonet API: %s",
+                "Error deleting %s %s using the Exonet API%s",
                 type(resource).__name__,
                 resource.id(),
-                exception,
+                description,
             )
 
     def get_relation(
@@ -74,10 +76,11 @@ class ExonetClient:
         try:
             return resource.related(relation_name).get()
         except HTTPError as exception:
+            description = f": {exception.response.text}" if exception.response else ""
             LOGGER.debug(
-                "Error getting %s from the Exonet API: %s",
+                "Error getting %s from the Exonet API%s",
                 type(resource).__name__,
-                exception.response.text,
+                description,
             )
             return None
 
@@ -102,11 +105,8 @@ class ExonetClient:
                 .resources()
             )
         except HTTPError as exception:
-            hint = (
-                "(Did you provide a valid API token?)"
-                if exception.response.status_code == 401
-                else ""
-            )
+            status_code = exception.response.status_code if exception.response else None
+            hint = "(Did you provide a valid API token?)" if status_code == 401 else ""
             error_message = (
                 f"Error finding DNS zone using the Exonet API: {exception}{hint}"
             )
