@@ -9,7 +9,8 @@ on:
 jobs:
   precommit:
     name: ${{ matrix.name }}
-    runs-on: ubuntu-latest
+    runs-on: dind
+    container: registry.exonet.nl/exonet/actions-development
     if: ${{ github.actor != 'dependabot[bot]' }}
     strategy:
       matrix:
