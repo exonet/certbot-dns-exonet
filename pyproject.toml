@@ -45,7 +45,7 @@ dns-exonet = "certbot_dns_exonet.authenticators.exonet_authenticator:ExonetAuthe
 
 
 [tool.poetry.group.dev.dependencies]
-wheel = ">=0.40,<0.42"
+wheel = ">=0.40,<0.43"
 bandit = "^1.7.5"
 black = "^23.1.0"
 blacken-docs = "^1.13.0"
