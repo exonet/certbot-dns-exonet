@@ -33,6 +33,6 @@ jobs:
 
       - name: Publish distribution to PyPI
         if: ${{ github.event_name == 'release' }}
-        uses: pypa/gh-action-pypi-publish@ec4db0b4ddc65acdf4bff5fa45ac92d78b56bdf0 #1.9.0
+        uses: pypa/gh-action-pypi-publish@0ab0b79471669eb3a4d647e625009c62f9f3b241 #1.10.1
         with:
           password: ${{ secrets.PYPI_API_TOKEN }}
