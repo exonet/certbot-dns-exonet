@@ -1,3 +1,5 @@
+"""Service containing all DNS logic."""
+
 from logging import getLogger
 
 from certbot.errors import PluginError
@@ -19,6 +21,7 @@ class DnsService:
 
         Args:
             token: The Exonet API token.
+
         """
         self.client = ExonetClient(token)
 
@@ -32,8 +35,9 @@ class DnsService:
              record_name: The record name (typically beginning with '_acme-challenge.').
              record_content: The record content (typically the challenge validation).
 
-         Raises:
+        Raises:
              PluginError: PluginError: If an error occurs while finding DNS zone.
+
         """
         # Convert to registered domain.
         domain = extract(domain_name).registered_domain
@@ -43,9 +47,8 @@ class DnsService:
 
         # If a zone is found, raise exception.
         if not zone:
-            raise PluginError(
-                f"Unable to find DNS zone for {domain_name}. Zone {domain} not found."
-            )
+            msg = f"Unable to find DNS zone for {domain_name}. Zone {domain} not found."
+            raise PluginError(msg)
 
         LOGGER.debug(
             "Found DNS zone %s for domain %s", zone.attribute("name"), domain_name
@@ -77,11 +80,12 @@ class DnsService:
 
         Args:
             domain_name: The domain to use to associate the record with.
-            record_name: The record name (typically beginning with '_acme-challenge.'). # noqa: E501
-            record_content: The record content (typically the challenge validation). # noqa: E501
+            record_name: The record name (typically beginning with '_acme-challenge.').
+            record_content: The record content (typically the challenge validation).
 
         Raises:
              PluginError: PluginError: If no DNS records are found for a domain.
+
         """
         # Convert to registered domain.
         domain = extract(domain_name).registered_domain
@@ -94,7 +98,8 @@ class DnsService:
 
         # If no records are found raise exception.
         if not domain_records:
-            raise PluginError(f"Unable to find DNS records for {zone}.")
+            msg = f"Unable to find DNS records for {zone}."
+            raise PluginError(msg)
 
         # Get all matching records.
         matching_records = [
@@ -120,6 +125,7 @@ class DnsService:
 
         Returns:
             str: The computed record name.
+
         """
         # The name of the DNS record, without the DNS zone name.
         return full_record_name.rpartition("." + domain.attribute("name"))[0]
@@ -133,6 +139,7 @@ class DnsService:
 
         Returns:
             str: The computed record content name.
+
         """
         # The DNS record content within quotes.
         return '"' + record_content + '"'

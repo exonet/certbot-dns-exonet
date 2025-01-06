@@ -1,5 +1,7 @@
+"""DNS Authenticator for the Exonet API."""
+
+from collections.abc import Callable
 from logging import getLogger
-from typing import Callable
 
 from certbot.configuration import NamespaceConfig
 from certbot.plugins.dns_common import CredentialsConfiguration, DNSAuthenticator
@@ -25,6 +27,7 @@ class ExonetAuthenticator(DNSAuthenticator):
         Args:
             config: Authenticator config.
             name: Created by name.
+
         """
         super().__init__(config, name)
         self._setup_credentials()
@@ -40,6 +43,7 @@ class ExonetAuthenticator(DNSAuthenticator):
         Args:
             add: Function to call.
             default_propagation_seconds: Default propagation. Defaults to 10 seconds.
+
         """
         super().add_parser_arguments(add, default_propagation_seconds)
         add("credentials", help="Exonet credentials INI file.")
@@ -49,10 +53,11 @@ class ExonetAuthenticator(DNSAuthenticator):
 
         Returns:
             Information about the plugin.
+
         """
         return (
             "This plugin configures a DNS TXT record to respond"
-            + " to a dns-01 challenge using the \
+            " to a dns-01 challenge using the \
             Exonet API."
         )
 
@@ -72,6 +77,7 @@ class ExonetAuthenticator(DNSAuthenticator):
             domain: The domain name.
             validation_name: The validation name.
             validation: The validation.
+
         """
         self.dns_service.add_txt_record(domain, validation_name, validation)
 
@@ -84,5 +90,6 @@ class ExonetAuthenticator(DNSAuthenticator):
             domain: The domain name.
             validation_name: The validation name.
             validation: The validation.
+
         """
         self.dns_service.del_txt_record(domain, validation_name, validation)

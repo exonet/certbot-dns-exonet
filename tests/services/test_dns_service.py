@@ -1,8 +1,10 @@
+"""Certbot DNS Exonet tests."""
+
 from unittest.mock import Mock, patch
 
+import pytest
 from certbot.errors import PluginError
 from exonetapi.structures import ApiResource, ApiResourceSet
-from pytest import raises
 
 from certbot_dns_exonet.services.dns_service import DnsService
 
@@ -24,6 +26,7 @@ class TestDnsService:
                 certbot_dns_exonet.clients.exonet_client.ExonetClient.post_api_resource.
             mock_find_dns_zone_by_name: Mock of
                 certbot_dns_exonet.clients.exonet_client.ExonetClient.find_dns_zone_by_name.
+
         """
         zone = ApiResource({"type": "dns_zones", "id": "BqgWr8dr0XV7"})
         zone.attribute("name", "test.nl")
@@ -65,12 +68,13 @@ class TestDnsService:
                 certbot_dns_exonet.clients.exonet_client.ExonetClient.post_api_resource.
             mock_find_dns_zone_by_name: Mock of
                 certbot_dns_exonet.clients.exonet_client.ExonetClient.find_dns_zone_by_name.
+
         """
         mock_find_dns_zone_by_name.return_value = None
 
         dns_service = DnsService("kaSD0ffAD1ldSA92A0KODkaksda02KDAK")
 
-        with raises(PluginError) as e_info:
+        with pytest.raises(PluginError) as e_info:
             dns_service.add_txt_record(
                 "exodev.nl",
                 "_acme-challenge.exodev.nl",
@@ -107,6 +111,7 @@ class TestDnsService:
                 certbot_dns_exonet.clients.exonet_client.ExonetClient.get_relation.
              mock_find_dns_zone_by_name (Mock): Mock of
                 certbot_dns_exonet.clients.exonet_client.ExonetClient.find_dns_zone_by_name.
+
         """
         zone = ApiResource({"type": "dns_zones", "id": "BqgWr8dr0XV7"})
         zone.attribute("name", "exodev.nl")
@@ -161,6 +166,7 @@ class TestDnsService:
                 certbot_dns_exonet.clients.exonet_client.ExonetClient.get_relation.
              mock_find_dns_zone_by_name (Mock): Mock of
                 certbot_dns_exonet.clients.exonet_client.ExonetClient.find_dns_zone_by_name.
+
         """
         zone = ApiResource({"type": "dns_zones", "id": "BqgWr8dr0XV7"})
         zone.attribute("name", "exodev.nl")
@@ -171,7 +177,7 @@ class TestDnsService:
 
         dns_service = DnsService("kaSD0ffAD1ldSA92A0KODkaksda02KDAK")
 
-        with raises(PluginError) as e_info:
+        with pytest.raises(PluginError) as e_info:
             dns_service.del_txt_record(
                 "exodev.nl",
                 "_acme-challenge.exodev.nl",

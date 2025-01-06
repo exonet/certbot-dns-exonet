@@ -1,3 +1,5 @@
+"""Certbot DNS Exonet tests."""
+
 from argparse import Namespace
 from unittest.mock import Mock, patch
 
@@ -16,6 +18,7 @@ class TestExonetAuthenticator:
         Args:
             mock_configure_credentials: Mock of
                 certbot.plugins.dns_common.DNSAuthenticator._configure_credentials.
+
         """
         # Create input variables.
         config = NamespaceConfig(
@@ -27,7 +30,7 @@ class TestExonetAuthenticator:
                 https_port=443,
                 domains=["exodev.nl"],
                 test_user_credentials=[],
-                dns_exonet_credentials="/home/dev/repositories/certbot-dns-exonet/exonet.ini",  # noqa: E501
+                dns_exonet_credentials="/home/dev/repositories/certbot-dns-exonet/exonet.ini",
             )
         )
 
@@ -44,7 +47,7 @@ class TestExonetAuthenticator:
         # Check call args.
         assert add_mock.call_args_list[0][0][0] == "propagation-seconds"
         assert add_mock.call_args_list[0][1]["default"] == 10
-        assert add_mock.call_args_list[0][1]["type"] == int
+        assert add_mock.call_args_list[0][1]["type"] is int
         assert (
             add_mock.call_args_list[0][1]["help"]
             == "The number of seconds to wait for DNS to propagate before asking the ACME server to verify the DNS record."  # noqa: E501
@@ -60,6 +63,7 @@ class TestExonetAuthenticator:
         Args:
             mock_configure_credentials: Mock of
                 certbot.plugins.dns_common.DNSAuthenticator._configure_credentials.
+
         """
         # Create input variables.
         config = NamespaceConfig(
@@ -71,7 +75,7 @@ class TestExonetAuthenticator:
                 https_port=443,
                 domains=["exodev.nl"],
                 test_user_credentials=[],
-                dns_exonet_credentials="/home/dev/repositories/certbot-dns-exonet/exonet.ini",  # noqa: E501
+                dns_exonet_credentials="/home/dev/repositories/certbot-dns-exonet/exonet.ini",
             )
         )
 
@@ -85,6 +89,6 @@ class TestExonetAuthenticator:
         # Check response.
         assert info == (
             "This plugin configures a DNS TXT record to respond"
-            + " to a dns-01 challenge using the \
+            " to a dns-01 challenge using the \
             Exonet API."
         )
