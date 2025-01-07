@@ -2,19 +2,19 @@
 
 [[package]]
 name = "acme"
-version = "2.11.0"
+version = "3.0.1"
 description = "ACME protocol implementation in Python"
 optional = false
 python-versions = ">=3.8"
 groups = ["main"]
 files = [
-    {file = "acme-2.11.0-py3-none-any.whl", hash = "sha256:23213ac3074a78862b219e0a30e141fd53238a8bdcf0668bd4dea59b28873fb8"},
-    {file = "acme-2.11.0.tar.gz", hash = "sha256:f4950015cf52ff0de12f37fc28034c7710aca63f64f1696253d2f6cb9f22645e"},
+    {file = "acme-3.0.1-py3-none-any.whl", hash = "sha256:6b5f88681ead76f8c7de313ac6c7ee1c567fdcc61d48cfad2f5cb3606778529b"},
+    {file = "acme-3.0.1.tar.gz", hash = "sha256:2f4ae207c8a6791a2bc74cd18d60274766f483c2059145b0142cbb43e761331c"},
 ]
 
 [package.dependencies]
 cryptography = ">=3.2.1"
-josepy = ">=1.13.0"
+josepy = ">=1.13.0,<2"
 PyOpenSSL = ">=17.5.0,<23.1.0 || >23.1.0"
 pyrfc3339 = "*"
 pytz = ">=2019.3"
@@ -42,24 +42,24 @@ typing-extensions = {version = ">=4.0.0", markers = "python_version < \"3.11\""}
 
 [[package]]
 name = "certbot"
-version = "2.11.0"
+version = "3.0.1"
 description = "ACME client"
 optional = false
 python-versions = ">=3.8"
 groups = ["main"]
 files = [
-    {file = "certbot-2.11.0-py3-none-any.whl", hash = "sha256:dc4e0a48bcb09448d60362170ca1047cc9a81966da0dd35135f2561f0ea7d5b1"},
-    {file = "certbot-2.11.0.tar.gz", hash = "sha256:257ae1cb0a534373ca50dd807c9ae96f27660e41379c45afb9b50cab0e6a7a97"},
+    {file = "certbot-3.0.1-py3-none-any.whl", hash = "sha256:32447edd7f9d38d2b30699137c0986516ed01971b60667c72382c7f81ec104dd"},
+    {file = "certbot-3.0.1.tar.gz", hash = "sha256:4d573635840bbcc1124a2176e7188e69f6e3210f9ed94e20839547f07caee2b2"},
 ]
 
 [package.dependencies]
-acme = ">=2.11.0"
+acme = ">=3.0.1"
 ConfigArgParse = ">=1.5.3"
 configobj = ">=5.0.6"
 cryptography = ">=3.2.1"
 distro = ">=1.0.1"
 importlib-metadata = {version = ">=4.6", markers = "python_version < \"3.10\""}
-josepy = ">=1.13.0"
+josepy = ">=1.13.0,<2"
 parsedatetime = ">=2.4"
 pyrfc3339 = "*"
 pytz = ">=2019.3"
@@ -67,10 +67,10 @@ pywin32 = {version = ">=300", markers = "sys_platform == \"win32\""}
 setuptools = ">=41.6.0"
 
 [package.extras]
-all = ["Sphinx (>=1.2)", "azure-devops", "coverage", "ipdb", "mypy", "pip", "poetry (>=1.2.0)", "poetry-plugin-export (>=1.1.0)", "pylint", "pytest", "pytest-cov", "pytest-xdist", "setuptools", "sphinx-rtd-theme", "tox", "twine", "types-httplib2", "types-pyOpenSSL", "types-pyRFC3339", "types-pytz", "types-pywin32", "types-requests", "types-setuptools", "types-six", "wheel"]
+all = ["Sphinx (>=1.2)", "azure-devops", "coverage", "ipdb", "mypy", "pip", "poetry (>=1.2.0)", "poetry-plugin-export (>=1.1.0)", "pylint", "pytest", "pytest-cov", "pytest-xdist", "setuptools", "sphinx-rtd-theme", "tox", "twine", "types-httplib2", "types-pyOpenSSL", "types-pyRFC3339", "types-pytz", "types-pywin32", "types-requests", "types-setuptools", "wheel"]
 dev = ["azure-devops", "ipdb", "poetry (>=1.2.0)", "poetry-plugin-export (>=1.1.0)", "twine"]
 docs = ["Sphinx (>=1.2)", "sphinx-rtd-theme"]
-test = ["coverage", "mypy", "pip", "pylint", "pytest", "pytest-cov", "pytest-xdist", "setuptools", "tox", "types-httplib2", "types-pyOpenSSL", "types-pyRFC3339", "types-pytz", "types-pywin32", "types-requests", "types-setuptools", "types-six", "wheel"]
+test = ["coverage", "mypy", "pip", "pylint", "pytest", "pytest-cov", "pytest-xdist", "setuptools", "tox", "types-httplib2", "types-pyOpenSSL", "types-pyRFC3339", "types-pytz", "types-pywin32", "types-requests", "types-setuptools", "wheel"]
 
 [[package]]
 name = "certifi"
@@ -524,19 +524,19 @@ test = ["pytest (>=6)"]
 
 [[package]]
 name = "exonetapi"
-version = "4.0.0"
+version = "5.0.0"
 description = "Library to interact with the Exonet API."
 optional = false
-python-versions = ">=3.8,<4.0"
+python-versions = ">=3.9"
 groups = ["main"]
 files = [
-    {file = "exonetapi-4.0.0-py3-none-any.whl", hash = "sha256:be2a807776fa56e86a2f541e394508c48c2d30ceb91dfca78e2f583050723cd6"},
-    {file = "exonetapi-4.0.0.tar.gz", hash = "sha256:29e9ffef45b4bd905a44c4fdbf1a146a2a656947bed18cd717555500401c9c5b"},
+    {file = "exonetapi-5.0.0-py3-none-any.whl", hash = "sha256:c6eba38cb03fcd371161dbccc9beeebcf7df28a7fb5cd771916e263e80f17713"},
+    {file = "exonetapi-5.0.0.tar.gz", hash = "sha256:0df276ac653d3d78768d790400b888b426ed80b88ef15ce75a3e5f519d5ed066"},
 ]
 
 [package.dependencies]
-inflection = ">=0.5.1,<0.6.0"
-requests = ">=2.27.1,<3.0.0"
+inflection = "0.5.1"
+requests = "2.32.3"
 
 [[package]]
 name = "filelock"
@@ -1253,14 +1253,14 @@ type = ["importlib_metadata (>=7.0.2)", "jaraco.develop (>=7.21)", "mypy (==1.14
 
 [[package]]
 name = "tldextract"
-version = "4.0.0"
+version = "5.1.3"
 description = "Accurately separates a URL's subdomain, domain, and public suffix, using the Public Suffix List (PSL). By default, this includes the public ICANN TLDs and their exceptions. You can optionally support the Public Suffix List's private domains as well."
 optional = false
-python-versions = ">=3.7"
+python-versions = ">=3.9"
 groups = ["main"]
 files = [
-    {file = "tldextract-4.0.0-py3-none-any.whl", hash = "sha256:9950afba41f7dfda3ef3fcc8fdc12790c22a662c5b4e6d1d796eff32bf7048dc"},
-    {file = "tldextract-4.0.0.tar.gz", hash = "sha256:d220175f4a6367f5d2b5ad0e335292b449233b7cec7534416e7231babd00ba8e"},
+    {file = "tldextract-5.1.3-py3-none-any.whl", hash = "sha256:78de310cc2ca018692de5ddf320f9d6bd7c5cf857d0fd4f2175f0cdf4440ea75"},
+    {file = "tldextract-5.1.3.tar.gz", hash = "sha256:d43c7284c23f5dc8a42fd0fee2abede2ff74cc622674e4cb07f514ab3330c338"},
 ]
 
 [package.dependencies]
@@ -1268,6 +1268,10 @@ filelock = ">=3.0.8"
 idna = "*"
 requests = ">=2.1.0"
 requests-file = ">=1.4"
+
+[package.extras]
+release = ["build", "twine"]
+testing = ["mypy", "pytest", "pytest-gitignore", "pytest-mock", "responses", "ruff", "syrupy", "tox", "tox-uv", "types-filelock", "types-requests"]
 
 [[package]]
 name = "tomli"
@@ -1433,4 +1437,4 @@ type = ["pytest-mypy"]
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.9,<3.14"
-content-hash = "a98b46febf17a491f76d6f0e6a2879085cdc0b89054dd9c1a8715a4e2e647aa2"
+content-hash = "cdf47bd4fdcb612762ae1038841fda7303ea63bb153f3b13b417ebe2b04c1ecd"
