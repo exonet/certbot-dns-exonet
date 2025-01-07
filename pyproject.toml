@@ -33,7 +33,7 @@ requires-python = ">=3.9,<3.14"
 dependencies = [
   "requests==2.32.3",
   "tldextract==4.0.0",
-  "acme==2.11.0",
+  "acme==3.0.1",
   "exonetapi==4.0.0",
   "certbot==2.11.0"
 ]
