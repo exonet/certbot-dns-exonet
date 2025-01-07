@@ -1,10 +1,17 @@
+"""Client that encapsulates all communication with the Exonet API."""
+
+from __future__ import annotations
+
 from logging import getLogger
-from typing import Optional
+from typing import TYPE_CHECKING
 
 from certbot.errors import PluginError
 from exonetapi import Client
-from exonetapi.structures import ApiResource, ApiResourceSet
 from requests.exceptions import HTTPError
+
+if TYPE_CHECKING:
+    from exonetapi.structures import ApiResource, ApiResourceSet
+
 
 LOGGER = getLogger(__name__)
 
@@ -19,6 +26,7 @@ class ExonetClient:
 
         Args:
             token: Exonet token.
+
         """
         self.client = Client()
         self.client.authenticator.set_token(token)
@@ -34,6 +42,7 @@ class ExonetClient:
 
         Returns:
             ApiResource: The created Exonet ApiResource.
+
         """
         try:
             return resource.post()
@@ -48,6 +57,7 @@ class ExonetClient:
 
         Args:
             resource: The Exonet ApiResource.
+
         """
         try:
             LOGGER.debug("Deleting DNS record with id: %s", resource.id())
@@ -63,7 +73,7 @@ class ExonetClient:
 
     def get_relation(
         self, resource: ApiResource, relation_name: str
-    ) -> Optional[ApiResourceSet]:
+    ) -> ApiResourceSet | None:
         """Get relation for ApiResource based on relation name.
 
         Args:
@@ -72,6 +82,7 @@ class ExonetClient:
 
         Returns:
             Optional[ApiResourceSet]: ApiResourceSet if found.
+
         """
         try:
             return resource.related(relation_name).get()
@@ -84,7 +95,7 @@ class ExonetClient:
             )
             return None
 
-    def find_dns_zone_by_name(self, domain: str) -> Optional[ApiResource]:
+    def find_dns_zone_by_name(self, domain: str) -> ApiResource | None:
         """Find the domain resource for a given domain.
 
         Args:
@@ -95,6 +106,7 @@ class ExonetClient:
 
         Returns:
             The domain, if found.
+
         """
         try:
             # Get zone based on attribute name.

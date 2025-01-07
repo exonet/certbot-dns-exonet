@@ -1,10 +1,12 @@
+"""Certbot DNS Exonet tests."""
+
 from unittest.mock import Mock, patch
 
+import pytest
 from certbot.errors import PluginError
 from exonetapi.auth.Authenticator import Authenticator
 from exonetapi.RequestBuilder import RequestBuilder
 from exonetapi.structures import ApiResource, ApiResourceSet
-from pytest import raises
 from requests import Response
 from requests.exceptions import HTTPError
 
@@ -20,6 +22,7 @@ class TestExonetClient:
 
         Args:
             mock_set_token: Mock of set_token function from the Exonet API.
+
         """
         # Authenticate using Exonet client.
         ExonetClient("kaSD0ffAD1ldSA92A0KODkaksda02KDAK")
@@ -38,6 +41,7 @@ class TestExonetClient:
                 exonetapi.structures.ApiResource.post.
             mock_set_token: Mock of
                 exonetapi.auth.Authenticator.set_token.
+
         """
         exonet_client = ExonetClient("kaSD0ffAD1ldSA92A0KODkaksda02KDAK")
         exonet_client.post_api_resource(
@@ -63,6 +67,7 @@ class TestExonetClient:
                 exonetapi.structures.ApiResource.post.
             mock_set_token: Mock of
                 exonetapi.auth.Authenticator.set_token.
+
         """
         response = Mock(spec=Response)
         response.text = "This is broken"
@@ -72,7 +77,7 @@ class TestExonetClient:
 
         exonet_client = ExonetClient("kaSD0ffAD1ldSA92A0KODkaksda02KDAK")
 
-        with raises(PluginError) as e_info:
+        with pytest.raises(PluginError) as e_info:
             exonet_client.post_api_resource(
                 ApiResource({"type": "dns_records", "id": "qjJWA0Km8xgw"})
             )
@@ -100,6 +105,7 @@ class TestExonetClient:
                 exonetapi.structures.ApiResource.delete.
             mock_set_token: Mock of
                 exonetapi.auth.Authenticator.set_token.
+
         """
         exonet_client = ExonetClient("kaSD0ffAD1ldSA92A0KODkaksda02KDAK")
         exonet_client.delete_api_resource(
@@ -125,6 +131,7 @@ class TestExonetClient:
                 exonetapi.structures.ApiResource.post.
             mock_set_token: Mock of
                 exonetapi.auth.Authenticator.set_token.
+
         """
         response = Mock(spec=Response)
         response.text = "This is broken"
@@ -155,6 +162,7 @@ class TestExonetClient:
                 exonetapi.RequestBuilder.get.
             mock_set_token: Mock of
                 exonetapi.auth.Authenticator.set_token.
+
         """
         exonet_client = ExonetClient("kaSD0ffAD1ldSA92A0KODkaksda02KDAK")
         exonet_client.get_relation(
@@ -180,6 +188,7 @@ class TestExonetClient:
                 exonetapi.RequestBuilder.get.
             mock_set_token: Mock of
                 exonetapi.auth.Authenticator.set_token.
+
         """
         response = Mock(spec=Response)
         response.text = "This is broken"
@@ -212,6 +221,7 @@ class TestExonetClient:
                 exonetapi.RequestBuilder.get.
             mock_set_token: Mock of
                 exonetapi.auth.Authenticator.set_token.
+
         """
         api_resource_set = ApiResourceSet()
         api_resource_set.add_resource(
@@ -245,6 +255,7 @@ class TestExonetClient:
                 exonetapi.RequestBuilder.get.
             mock_set_token: Mock of
                 exonetapi.auth.Authenticator.set_token.
+
         """
         response = Mock(spec=Response)
         response.text = "This is broken"
@@ -262,17 +273,13 @@ class TestExonetClient:
 
         exonet_client = ExonetClient("kaSD0ffAD1ldSA92A0KODkaksda02KDAK")
 
-        with raises(PluginError) as e_info:
-            zone = exonet_client.find_dns_zone_by_name("test.nl")
-
-            # Check response data.
-            assert isinstance(zone, ApiResource)
+        with pytest.raises(PluginError) as e_info:
+            exonet_client.find_dns_zone_by_name("test.nl")
 
         # Check error message.
-        assert (
-            e_info.value.args[0]
-            == "Error finding DNS zone using the Exonet API:"
-            + " (Did you provide a valid API token?)"
+        assert e_info.value.args[0] == (
+            "Error finding DNS zone using the Exonet API:"
+            " (Did you provide a valid API token?)"
         )
 
         # Check mock calls.

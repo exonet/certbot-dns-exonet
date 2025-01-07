@@ -1,18 +1,16 @@
 ---
-name: Typing
+name: Release
 
-# yamllint disable-line rule:truthy
 on:
-  push:
-  pull_request:
-  workflow_dispatch:
+  release:
+    types: [published]
 
 env:
-  DEFAULT_PYTHON: "3.13"
+  DEFAULT_PYTHON: "3.11"
 
 jobs:
-  mypy:
-    name: Mypy
+  release:
+    name: Releasing to PyPi
     runs-on: ubuntu-latest
 
     steps:
@@ -37,5 +35,19 @@ jobs:
       - name: Install dependencies
         run: poetry install --no-interaction
 
-      - name: Run mypy
-        run: poetry run mypy certbot_dns_exonet tests
+      - name: Set package version
+        run: |
+          version="${{ github.event.release.tag_name }}"
+          version="${version,,}"
+          version="${version#v}"
+          poetry version --no-interaction "${version}"
+
+      - name: Build package
+        run: poetry build --no-interaction
+
+      - name: Publish to PyPi
+        env:
+          PYPI_TOKEN: ${{ secrets.PYPI_API_TOKEN }}
+        run: |
+          poetry config pypi-token.pypi "${PYPI_API_TOKEN}"
+          poetry publish --no-interaction

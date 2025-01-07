@@ -3,8 +3,8 @@ name: Draft Release
 
 on:
   push:
-    branches:
-      - master
+    branches: [master]
+  workflow_dispatch:
 
 jobs:
   update-release-draft:
@@ -13,6 +13,6 @@ jobs:
 
     steps:
       - name: Run release drafter
-        uses: release-drafter/release-drafter@3f0f87098bd6b5c5b9a36d49c41d998ea58f9348 #6.0.0
+        uses: release-drafter/release-drafter@v6.0.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
