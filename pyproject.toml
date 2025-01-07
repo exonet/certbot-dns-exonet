@@ -41,7 +41,7 @@ dns-exonet = "certbot_dns_exonet.authenticators.exonet_authenticator:ExonetAuthe
 [tool.poetry.dependencies]
 requests = "^2.32.3"
 tldextract = "^4.0.0"
-acme = "^2.11.0"
+acme = "^3.0.0"
 exonetapi = "^4.0.0"
 certbot = "^2.11.0"
 
