@@ -1,8 +1,8 @@
-[tool.poetry]
+[project]
 name = "certbot-dns-exonet"
-version = "3.1.0"
+version = "4.0.0"
 description = "Exonet DNS Authenticator plugin for Certbot"
-authors = ["Exonet <development@exonet.nl>"]
+authors = [{ name = "Exonet", email = "development@exonet.nl" }]
 license = "MIT"
 readme = "README.md"
 homepage = "https://github.com/exonet/certbot-dns-exonet"
@@ -28,20 +28,22 @@ classifiers = [
     "Topic :: System :: Systems Administration",
     "Topic :: Utilities",
 ]
+requires-python = ">=3.9,<3.14"
 
+dependencies = [
+  "requests==2.32.3",
+  "tldextract==4.0.0",
+  "acme==2.11.0",
+  "exonetapi==4.0.0",
+  "certbot==2.11.0"
+]
+
+[tool.poetry]
 packages = [
     {include = "certbot_dns_exonet"}
 ]
 
-[tool.poetry.dependencies]
-python = "^3.9, < 3.14"
-requests = "^2.28.2"
-tldextract = ">=3.4,<5.0"
-acme = "^2.5.0"
-exonetapi = "^4.0.0"
-certbot = "^2.5.0"
-
-[tool.poetry.plugins."certbot.plugins"]
+[project.entry-points."certbot.plugins"]
 dns-exonet = "certbot_dns_exonet.authenticators.exonet_authenticator:ExonetAuthenticator"
 
 [tool.poetry.group.dev.dependencies]
