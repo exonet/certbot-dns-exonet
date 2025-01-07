@@ -4,10 +4,8 @@ version = "4.0.0"
 description = "Exonet DNS Authenticator plugin for Certbot"
 authors = [{ name = "Exonet", email = "development@exonet.nl" }]
 license = "MIT"
+requires-python = ">=3.9,<3.14"
 readme = "README.md"
-homepage = "https://github.com/exonet/certbot-dns-exonet"
-repository = "https://github.com/exonet/certbot-dns-exonet"
-documentation = "https://github.com/exonet/certbot-dns-exonet"
 classifiers = [
     "Development Status :: 5 - Production/Stable",
     "Environment :: Plugins",
@@ -28,22 +26,25 @@ classifiers = [
     "Topic :: System :: Systems Administration",
     "Topic :: Utilities",
 ]
-requires-python = ">=3.9,<3.14"
-
-[tool.poetry]
+dynamic = ["dependencies"]
 packages = [
     {include = "certbot_dns_exonet"}
 ]
 
-[project.entry-points."certbot.plugins"]
-dns-exonet = "certbot_dns_exonet.authenticators.exonet_authenticator:ExonetAuthenticator"
+[project.urls]
+homepage = "https://github.com/exonet/certbot-dns-exonet"
+repository = "https://github.com/exonet/certbot-dns-exonet"
+documentation = "https://github.com/exonet/certbot-dns-exonet"
 
 [tool.poetry.dependencies]
 requests = "^2.32.3"
-tldextract = "^4.0.0"
-acme = "^2.11.0"
-exonetapi = "^4.0.0"
-certbot = "^2.11.0"
+tldextract = "^5.1.3"
+acme = "^3.0.1"
+exonetapi = "^5.0.0"
+certbot = "^3.0.1"
+
+[project.entry-points."certbot.plugins"]
+dns-exonet = "certbot_dns_exonet.authenticators.exonet_authenticator:ExonetAuthenticator"
 
 [tool.poetry.group.dev.dependencies]
 pre-commit = "4.0.1"
