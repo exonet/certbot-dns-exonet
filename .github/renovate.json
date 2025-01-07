@@ -30,7 +30,7 @@
       "matchDepTypes": [
         "dev"
       ],
-      "rangeStrategy": "pin"
+      "rangeStrategy": "update-lockfile"
     },
     {
       "matchManagers": [
