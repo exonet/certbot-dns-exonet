@@ -47,7 +47,7 @@ certbot = "^3.0.1"
 dns-exonet = "certbot_dns_exonet.authenticators.exonet_authenticator:ExonetAuthenticator"
 
 [tool.poetry.group.dev.dependencies]
-pre-commit = "4.0.1"
+pre-commit = "4.1.0"
 pre-commit-hooks = "5.0.0"
 ruff = "0.8.6"
 codespell = "2.3.0"
