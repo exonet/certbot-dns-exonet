@@ -55,11 +55,8 @@ class ExonetAuthenticator(DNSAuthenticator):
             Information about the plugin.
 
         """
-        return (
-            "This plugin configures a DNS TXT record to respond"
-            " to a dns-01 challenge using the \
-            Exonet API."
-        )
+        return "This plugin configures a DNS TXT record to respond to a dns-01 \
+                challenge using the Exonet API."
 
     def _setup_credentials(self) -> None:
         self.credentials = self._configure_credentials(
