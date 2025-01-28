@@ -88,7 +88,6 @@ class TestExonetAuthenticator:
 
         # Check response.
         assert info == (
-            "This plugin configures a DNS TXT record to respond"
-            " to a dns-01 challenge using the \
-            Exonet API."
+            "This plugin configures a DNS TXT record to respond to a dns-01 "
+            "challenge using the Exonet API."
         )
