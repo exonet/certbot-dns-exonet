@@ -39,9 +39,9 @@ documentation = "https://github.com/exonet/certbot-dns-exonet"
 [tool.poetry.dependencies]
 requests = "^2.32.3"
 tldextract = "^5.1.3"
-acme = "^3.0.1"
+acme = "^4.0.0"
 exonetapi = "^5.0.0"
-certbot = "^3.0.1"
+certbot = "^4.0.0"
 
 [project.entry-points."certbot.plugins"]
 dns-exonet = "certbot_dns_exonet.authenticators.exonet_authenticator:ExonetAuthenticator"
