@@ -40,32 +40,32 @@ typing-extensions = {version = ">=4", markers = "python_version < \"3.11\""}
 
 [[package]]
 name = "certbot"
-version = "4.2.0"
+version = "5.1.0"
 description = "ACME client"
 optional = false
-python-versions = ">=3.9.2"
+python-versions = ">=3.10"
 groups = ["main"]
 files = [
-    {file = "certbot-4.2.0-py3-none-any.whl", hash = "sha256:8fcca0c1a06df9ce39e89b7d13c70506e1372823e8b5993633d21adb77581950"},
-    {file = "certbot-4.2.0.tar.gz", hash = "sha256:fb1e56ca8a072bec49ac0c7b5390a29cbf68c2c05f712259a9b3491de041c27b"},
+    {file = "certbot-5.1.0-py3-none-any.whl", hash = "sha256:9f1aa341af342c676cd356ca082a8fa15bb1edcbb7ced09a975224427e5ec9c6"},
+    {file = "certbot-5.1.0.tar.gz", hash = "sha256:d652a598f67af78ecf122860e85cd2e9c19a2bbe79a71775eccf6e8d642a4fca"},
 ]
 
 [package.dependencies]
-acme = ">=4.2.0"
+acme = ">=5.1.0"
 ConfigArgParse = ">=1.5.3"
 configobj = ">=5.0.6"
 cryptography = ">=43.0.0"
 distro = ">=1.0.1"
 josepy = ">=2.0.0"
-parsedatetime = ">=2.4"
+parsedatetime = ">=2.6"
 pyrfc3339 = "*"
 pywin32 = {version = ">=300", markers = "sys_platform == \"win32\""}
 
 [package.extras]
-all = ["Sphinx (>=1.2)", "azure-devops", "coverage", "ipdb", "mypy", "pip", "poetry (>=1.2.0)", "poetry-plugin-export (>=1.9.0)", "pylint", "pytest", "pytest-cov", "pytest-xdist", "setuptools", "sphinx_rtd_theme", "towncrier", "tox", "twine", "types-httplib2", "types-pyRFC3339", "types-pywin32", "types-requests", "types-setuptools", "wheel"]
-dev = ["azure-devops", "ipdb", "poetry (>=1.2.0)", "poetry-plugin-export (>=1.9.0)", "towncrier", "twine"]
+all = ["certbot[dev,docs,test]"]
+dev = ["azure-devops", "build", "ipdb", "poetry (>=1.2.0)", "poetry-plugin-export (>=1.9.0)", "towncrier", "twine"]
 docs = ["Sphinx (>=1.2)", "sphinx_rtd_theme"]
-test = ["coverage", "mypy", "pip", "pylint", "pytest", "pytest-cov", "pytest-xdist", "setuptools", "tox", "types-httplib2", "types-pyRFC3339", "types-pywin32", "types-requests", "types-setuptools", "wheel"]
+test = ["coverage", "mypy", "pip", "pylint", "pytest", "pytest-cov (>=4.1.0)", "pytest-xdist", "ruff", "setuptools", "tox", "types-httplib2", "types-pyRFC3339", "types-pywin32", "types-requests", "types-setuptools", "uv", "wheel"]
 
 [[package]]
 name = "certifi"
@@ -1477,4 +1477,4 @@ dev = ["doc8", "flake8", "flake8-import-order", "rstcheck[sphinx]", "sphinx"]
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.10,<3.14"
-content-hash = "2e811c318f5df4d9f823bac5ef45d18a108adc4a354ba76e755db31351c52fd8"
+content-hash = "519fa1cacc399242f1b4275eb1885a750745444924eebd0c77fe5812fc6701e6"
