@@ -618,19 +618,19 @@ test = ["pytest (>=6)"]
 
 [[package]]
 name = "exonetapi"
-version = "5.0.0"
+version = "5.1.0"
 description = "Library to interact with the Exonet API."
 optional = false
 python-versions = ">=3.9"
 groups = ["main"]
 files = [
-    {file = "exonetapi-5.0.0-py3-none-any.whl", hash = "sha256:c6eba38cb03fcd371161dbccc9beeebcf7df28a7fb5cd771916e263e80f17713"},
-    {file = "exonetapi-5.0.0.tar.gz", hash = "sha256:0df276ac653d3d78768d790400b888b426ed80b88ef15ce75a3e5f519d5ed066"},
+    {file = "exonetapi-5.1.0-py3-none-any.whl", hash = "sha256:7723c2567dbe9549ba206fb4a865959063ff3c25c56e1023570e6bfde0508eb9"},
+    {file = "exonetapi-5.1.0.tar.gz", hash = "sha256:724a7eadb25966a1eea489c687dd2b284d0df4c3bc9ed585095f5e9d048001ff"},
 ]
 
 [package.dependencies]
 inflection = "0.5.1"
-requests = "2.32.3"
+requests = "2.32.4"
 
 [[package]]
 name = "filelock"
@@ -1183,19 +1183,19 @@ files = [
 
 [[package]]
 name = "requests"
-version = "2.32.3"
+version = "2.32.4"
 description = "Python HTTP for Humans."
 optional = false
 python-versions = ">=3.8"
 groups = ["main"]
 files = [
-    {file = "requests-2.32.3-py3-none-any.whl", hash = "sha256:70761cfe03c773ceb22aa2f671b4757976145175cdfca038c02654d061d6dcc6"},
-    {file = "requests-2.32.3.tar.gz", hash = "sha256:55365417734eb18255590a9ff9eb97e9e1da868d4ccd6402399eaf68af20a760"},
+    {file = "requests-2.32.4-py3-none-any.whl", hash = "sha256:27babd3cda2a6d50b30443204ee89830707d396671944c998b5975b031ac2b2c"},
+    {file = "requests-2.32.4.tar.gz", hash = "sha256:27d0316682c8a29834d3264820024b62a36942083d52caf2f14c0591336d3422"},
 ]
 
 [package.dependencies]
 certifi = ">=2017.4.17"
-charset-normalizer = ">=2,<4"
+charset_normalizer = ">=2,<4"
 idna = ">=2.5,<4"
 urllib3 = ">=1.21.1,<3"
 
