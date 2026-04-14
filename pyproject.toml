@@ -54,7 +54,7 @@ codespell = "2.4.2"
 yamllint = "1.38.0"
 mypy = "1.20.0"
 pylint = "4.0.5"
-pytest = "9.0.2"
+pytest = "9.0.3"
 pytest-cov = "7.1.0"
 types-requests = "^2.32.0.20241016"
 
