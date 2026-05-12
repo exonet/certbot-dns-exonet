@@ -2,14 +2,14 @@
 
 [[package]]
 name = "acme"
-version = "5.5.0"
+version = "5.6.0"
 description = "ACME protocol implementation in Python"
 optional = false
 python-versions = ">=3.10"
 groups = ["main"]
 files = [
-    {file = "acme-5.5.0-py3-none-any.whl", hash = "sha256:4a7f653952300053765c92359575992bc644f6253f4c95ff197681b2830d971e"},
-    {file = "acme-5.5.0.tar.gz", hash = "sha256:0c237fe013a5406e9ea8b8bb04d6b753a0ed30005df1315175cb99d9c8f2248d"},
+    {file = "acme-5.6.0-py3-none-any.whl", hash = "sha256:fbf7ee8880485f2339942a2eff9a87deb79b74a8dcac4a572c08e7e640f046cd"},
+    {file = "acme-5.6.0.tar.gz", hash = "sha256:23f706ef1c437fc743b2f90704b97f263a56d83198b3af1c25c7dd42c4b463e4"},
 ]
 
 [package.dependencies]
