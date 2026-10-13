@@ -10,4 +10,6 @@ lint.extend-ignore = [
   "SLF001", # Tests will access private/protected members
   "S106", # Ignore possible passwords
   "ANN001", # Ignore missing annotations
+  "FBT003",  # Again, we like booleans.
+  "PT019", # mock.patch injects mocks as arguments, not as fixtures
 ]
