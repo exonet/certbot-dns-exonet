@@ -136,7 +136,7 @@ ignore = [
   "COM812",
   "ISC001",
 
-  # DevOeps
+  # DevOps Conventions
   "CPY001",  # No copyright header in internal services
   "D100",    # We don't care about the comment on the first line of a file. https://docs.astral.sh/ruff/rules/undocumented-public-module/
   "D102",    # No docstrings
