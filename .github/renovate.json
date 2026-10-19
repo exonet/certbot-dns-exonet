@@ -13,7 +13,6 @@
     "enabled": true,
     "automerge": true
   },
-  "commitMessagePrefix": "⬆️",
   "packageRules": [
     {
       "matchManagers": [
